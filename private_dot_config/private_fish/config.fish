@@ -1,7 +1,8 @@
 set -g fish_greeting " "
 if status is-interactive
 	eval "$(oh-my-posh init fish --config $(brew --prefix oh-my-posh)/themes/bubblesextra.omp.json) | source"
-fish_vi_key_bindings
+        fish_vi_key_bindings
+        oh-my-posh init fish | source
 end
 
 # Setting PATH for Python 3.11
