@@ -17,6 +17,7 @@ alias py python3
 alias vi nvim
 command -qv nvim && alias vim nvim
 set -gx EDITOR nvim
+set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
 
 # Setting PATH for Python 3.9
 # The original version is saved in /Users/mariusmenault/.config/fish/config.fish.pysave
