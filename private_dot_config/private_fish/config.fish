@@ -8,6 +8,7 @@ end
 # The original version is saved in /Users/mariusmenault/.config/fish/config.fish.pysave
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.11/bin" "$PATH"
 
+alias dc cd
 alias cm chezmoi
 alias cl clear
 alias gs "git status"
