@@ -1,4 +1,6 @@
 set -g fish_greeting " "
+set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
+
 if status is-interactive
 	eval "$(oh-my-posh init fish --config $(brew --prefix oh-my-posh)/themes/bubblesextra.omp.json) | source"
         fish_vi_key_bindings
@@ -18,7 +20,6 @@ alias py python3
 alias vi nvim
 command -qv nvim && alias vim nvim
 set -gx EDITOR nvim
-set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
 
 # Setting PATH for Python 3.9
 # The original version is saved in /Users/mariusmenault/.config/fish/config.fish.pysave
