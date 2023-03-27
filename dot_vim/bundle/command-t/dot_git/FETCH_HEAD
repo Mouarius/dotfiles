@@ -1,0 +1,14 @@
+23d2860931dcbcbdfb3543bed002e35d7b3b898b		branch 'main' of git://git.wincent.com/command-t
+806b20304db828e159fb886087a3b8dfbd922ec1	not-for-merge	branch '5-x-devel' of git://git.wincent.com/command-t
+806b20304db828e159fb886087a3b8dfbd922ec1	not-for-merge	branch '5-x-release' of git://git.wincent.com/command-t
+23d2860931dcbcbdfb3543bed002e35d7b3b898b	not-for-merge	branch 'master' of git://git.wincent.com/command-t
+5a64b3227161fbe332419a98367cf0b2b70dba1c	not-for-merge	branch 'media' of git://git.wincent.com/command-t
+8ac6c961accda4316618cd48d0b7a86f3bb8bfba	not-for-merge	branch 'next' of git://git.wincent.com/command-t
+e345176dd1a27222f281c6881a5a0e808dfbd936	not-for-merge	branch 'pu' of git://git.wincent.com/command-t
+3dffa2c4572667db61a8e5dda908a340b62d0e4c	not-for-merge	branch 'python' of git://git.wincent.com/command-t
+2f593e77a6eacef7cedbfc6d5a7d1e6e5b4c4a71	not-for-merge	branch 'releases' of git://git.wincent.com/command-t
+aa62eddf4711d972a02c18e3b22d084788fd8039	not-for-merge	branch 'traverse' of git://git.wincent.com/command-t
+f8d67e234aa39856ce62246cd4bf1c76f8b46245	not-for-merge	branch 'wincent/actions-dupes' of git://git.wincent.com/command-t
+f6a6cf7fb17cee08ca0ca84ffce6aabccc3d8476	not-for-merge	branch 'wincent/list-finder' of git://git.wincent.com/command-t
+0938103494a143fa35f49887c3820b251750c69f	not-for-merge	branch 'wincent/mimalloc' of git://git.wincent.com/command-t
+e8d4847f0ca246a605c720b4a740b57f7cdb3a65	not-for-merge	branch 'wincent/validation' of git://git.wincent.com/command-t
