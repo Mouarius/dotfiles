@@ -12,12 +12,26 @@ end
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.11/bin" "$PATH"
 
 alias dc cd
+
+# chezmoi
 alias cm chezmoi
+alias cme "chezmoi edit"
+
+# utility
 alias cl clear
-alias gs "git status"
 alias mv "mv -i"
 alias py python3
 alias vi nvim
+alias .. "cd .."
+alias .... "cd ../.."
+
+# git
+alias gs "git status"
+alias gc "git commit"
+alias ga "git add"
+alias gal "git add ."
+alias gp "git push"
+
 command -qv nvim && alias vim nvim
 set -gx EDITOR nvim
 
