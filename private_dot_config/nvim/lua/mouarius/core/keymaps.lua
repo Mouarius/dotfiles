@@ -25,6 +25,9 @@ keymap.set("n", "<leader>tp", ":tabp<CR>")
 
 keymap.set("n", "<leader>te", ":terminal<CR>")
 
+-- select all
+keymap.set("n", "<C-a>", "gg<S-v>G")
+
 -- plugins keymaps
 keymap.set("n", "<leader>md", ":MarkdownPreviewToggle<CR>")
 

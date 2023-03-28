@@ -42,6 +42,12 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
+-- highlight
+opt.cursorline = true
+opt.winblend = 0
+opt.wildoptions = "pum"
+opt.pumblend = 5
+
 -- backspace
 opt.backspace = "indent,eol,start"
 
