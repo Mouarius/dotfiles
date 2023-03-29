@@ -26,11 +26,13 @@ alias .. "cd .."
 alias .... "cd ../.."
 
 # git
+alias g git
 alias gs "git status"
 alias gc "git commit"
 alias ga "git add"
 alias gal "git add ."
 alias gp "git push"
+alias gl "git log --graph --oneline --decorate --all"
 
 command -qv nvim && alias vim nvim
 set -gx EDITOR nvim
