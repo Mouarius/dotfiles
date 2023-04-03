@@ -1,8 +1,13 @@
 set -g default-terminal "screen-256color"
 
-set -g prefix C-a
 unbind C-b
+{{- if eq .chezmoi.hostname "PC-MARIUS"}}
+set -g prefix C-q
+bind-key C-q send-prefix    
+{{- else }}
+set -g prefix C-a
 bind-key C-a send-prefix    
+{{- end }}
 
 unbind %
 bind ! split-window -h

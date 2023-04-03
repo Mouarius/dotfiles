@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os 'linux'}}
+if status is-login
+    and status is-interactive
+    SSH_KEYS_TO_AUTOLOAD[index_of_key]
+        keychain --eval $SSH_KEYS_TO_AUTOLOAD | source
+end
+{{end}}
+
