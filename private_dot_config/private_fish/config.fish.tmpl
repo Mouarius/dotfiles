@@ -1,6 +1,7 @@
 set -g fish_greeting " "
 set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
 {{if eq .chezmoi.hostname "PC-MARIUS"}}
+set -Ua SSH_KEYS_TO_AUTOLOAD ~/.ssh/id_ed25519
 eval "$(keychain --eval --agents ssh id_ed25519)"
 {{end}}
 
