@@ -1,8 +1,9 @@
 set -g fish_greeting " "
-set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
+
 {{if eq .chezmoi.hostname "PC-MARIUS"}}
 set -Ua SSH_KEYS_TO_AUTOLOAD ~/.ssh/id_ed25519
 eval "$(keychain --eval --agents ssh id_ed25519)"
+set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
 {{end}}
 
 if status is-interactive
@@ -15,6 +16,8 @@ end
 # The original version is saved in /Users/mariusmenault/.config/fish/config.fish.pysave
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.11/bin" "$PATH"
 
+
+pyenv init - | source
 alias dc cd
 
 # chezmoi
