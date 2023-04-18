@@ -35,11 +35,16 @@ alias .... "cd ../.."
 # git
 alias g git
 alias gs "git status"
-alias gc "git commit"
+alias gc "git commit -c"
 alias ga "git add"
 alias gal "git add ."
-alias gp "git push"
-alias gl "git log --graph --oneline --decorate --all"
+alias gps "git push"
+alias gpl "git pull"
+alias gk "git checkout" 
+alias glog "git log --graph --oneline --decorate --all"
+
+# django
+alias pm "python manage.py"
 
 command -qv nvim && alias vim nvim
 set -gx EDITOR nvim
