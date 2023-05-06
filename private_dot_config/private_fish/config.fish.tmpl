@@ -10,6 +10,7 @@ if status is-interactive
 	eval "$(oh-my-posh init fish --config $(brew --prefix oh-my-posh)/themes/{{ .fish_theme }}.omp.json) | source"
         fish_vi_key_bindings
         oh-my-posh init fish | source
+        set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 end
 
 # Setting PATH for Python 3.11
