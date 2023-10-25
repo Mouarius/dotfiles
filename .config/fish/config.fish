@@ -2,13 +2,13 @@ set -g fish_greeting " "
 
 if status is-interactive
   fish_vi_key_bindings
-  set -gx PATH "/home/linuxbrew/.linuxbrew/bin" $PATH
+  set fish_user_paths "/home/linuxbrew/.linuxbrew/bin" $fish_user_paths
   oh-my-posh init fish --config "$HOME/.config/fish/themes/amro-custom-mouarius.omp.json" | source
 end
 
 # Setting PATH for Python 3.11
 # The original version is saved in /Users/mariusmenault/.config/fish/config.fish.pysave
-set -x PATH "/Library/Frameworks/Python.framework/Versions/3.11/bin" "$PATH"
+# set -x PATH "/Library/Frameworks/Python.framework/Versions/3.11/bin" "$PATH"
 
 
 pyenv init - | source
