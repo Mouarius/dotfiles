@@ -4,6 +4,9 @@ vim.keymap.set("n", "<C-n>", vim.cmd.Ex)
 vim.keymap.set("n", "L", "$")
 vim.keymap.set("n", "H", "^")
 
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {desc = "Scroll up and center"})
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {desc = "Scroll down and center"})
+
 -- windows
 vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<cr>", {desc = "Split vertically"})
 vim.keymap.set("n", "<leader>sh", "<cmd>split<cr>", {desc = "Split horizontally"})
