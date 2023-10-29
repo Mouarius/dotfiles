@@ -242,19 +242,17 @@ bindsym --release XF86PowerOff mode "$mode_power"
 
 
 # WORKSPACES
-assign [class="firefox"] $ws4
-assign [class="firefox"] $ws5
 assign [class="Slack"] $ws8
 
 # SEARCH (Rofi)
 bindsym $mod+d exec rofi -show drun 
 
 
-# MEDIA KEYS
+# KEYS
 
   # Sreen brightness controls
-  bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-  bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+  bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+  bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 
   # Media player controls
@@ -263,20 +261,22 @@ bindsym $mod+d exec rofi -show drun
   bindsym XF86AudioNext exec playerctl next
   bindsym XF86AudioPrev exec playerctl previous
 
+  exec --no-startup-id localectl set-x11-keymap --no-convert fr pc105 nodeadkeys
+
 # Touchpad
   # natural scrolling
-  exec xinput set-prop 17 302 1
+  exec xinput set-prop "ASUE140A:00 04F3:3134 Touchpad" 302 1
   # touch click
-  exec xinput set-prop 17 325 1
+  exec xinput set-prop "ASUE140A:00 04F3:3134 Touchpad" 325 1
   # middle click emulation
-  exec xinput set-prop 17 323 1
+  exec xinput set-prop "ASUE140A:00 04F3:3134 Touchpad" 323 1
 
 
 # Borders
   # Also removes all title bars
-  for_window [class="^.*"] border pixel 2
-  default_border pixel 2
-  default_floating_border pixel 2
+  for_window [class="^.*"] border pixel 0
+  # default_border pixel 2
+  # default_floating_border pixel 2
 
   # Hide borders at the edge of the screen
   # hide_edge_borders smart
@@ -303,11 +303,12 @@ bindsym $mod+d exec rofi -show drun
       # unfocused	    #333333	#222222	    #888888	#292d2e	    #222222
       # urgent	    #2f343a	#900000	    #ffffff	#900000	    #900000
       # placeholder	#000000	#0c0c0c	    #ffffff	#000000 	#0c0c0c
-  client.focused           #9aa5ce #364A82 #c0caf5 #9aa5ce   $clr-purple
+  client.focused           #9aa5ce #364A82 #c0caf5 #9aa5ce   $clr-bg-highlight
   client.focused_inactive  #16161d #16161d #c0caf5 #16161d   $clr-bg-dark
   client.unfocused         #16161d #16161d #c0caf5 #16161d   $clr-bg-dark
 
 # Gaps
-  gaps inner 4
-  gaps outer 6
+  gaps inner 8
+  gaps outer 2
+  smart_gaps on
 
