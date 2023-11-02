@@ -46,7 +46,7 @@ return {
             default = "󰈚",
             symlink = "",
             folder = {
-              default = "",
+              default = "",
               empty = "",
               empty_open = "",
               open = "",
