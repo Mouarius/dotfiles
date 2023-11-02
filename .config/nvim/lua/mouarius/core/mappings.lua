@@ -16,7 +16,8 @@ vim.keymap.set("n", "<Tab>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  g
 vim.keymap.set("n", "<S-Tab>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
-
+vim.keymap.set("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', {desc = "Don't copy removed text", silent = true})
+vim.keymap.set("x", "<leader>p", '"_dP', {desc = "Paste not deleted"})
 -- VISUAL MODE
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")

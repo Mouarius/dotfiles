@@ -20,6 +20,14 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
+      -- turn off suggestions for specific file types
+      enabled = function()
+        local disabled_filetypes = {"markdown"}
+        for _,filetype in ipairs(disabled_filetypes) do
+          if filetype == vim.bo.filetype then return false end
+        end
+        return true
+      end,
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
