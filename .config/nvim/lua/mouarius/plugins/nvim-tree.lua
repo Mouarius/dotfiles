@@ -22,18 +22,13 @@ return {
       actions = {
         open_file = {
           window_picker = {
-            enable = false,
+            enable = true,
           },
         },
       },
       renderer = {
         root_folder_label = true,
-        highlight_git = false,
         highlight_opened_files = "none",
-
-        indent_markers = {
-          enable = false,
-        },
 
         icons = {
           show = {
