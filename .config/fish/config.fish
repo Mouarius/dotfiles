@@ -19,7 +19,7 @@ alias .. "cd .."
 alias .... "cd ../.."
 
 # config, see : https://www.atlassian.com/git/tutorials/dotfiles
-alias config "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias config "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 
 # git
@@ -33,11 +33,14 @@ alias gps "git push"
 alias gpl "git pull"
 alias gk "git checkout" 
 alias gkb "git checkout -b"
-alias glog "git log --graph --oneline --decorate --all"
+alias glog "git log --graph --oneline --decorate"
 alias gm "git merge"
 
 # django
 alias pm "python manage.py"
+
+# pre-commit
+alias pcr "pre-commit run"
 
 command -qv nvim && alias vim nvim
 set -gx EDITOR nvim

@@ -117,9 +117,9 @@ set $ws4 "4: firefox_1"
 set $ws5 "5: firefox_2"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "slack"
+set $ws8 "8: slack"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10: music"
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -228,9 +228,13 @@ set $clr-red1               #db4b4b
   exec_always --no-startup-id $HOME/.config/polybar/launch.sh
   exec_always picom -b
 
+  # Keymap
+  exec_always --no-startup-id xmodmap -e "keycode 66 = Control_L NoSymbol Control_L"
+
 # SCREEN LOCK
 bindsym $mod+shift+x exec betterlockscreen -l dim
 
+# POWER OFF
 set $mode_power [l]ogoff | [s]hutdown
 mode "$mode_power" {
         bindsym l exec i3-msg exit
@@ -239,6 +243,14 @@ mode "$mode_power" {
         bindsym Escape mode "default"
 }
 bindsym --release XF86PowerOff mode "$mode_power"
+
+# SCREEN LAYOUT
+bindsym $mod+Shift+F1 exec ~/.screenlayout/mouarius-solo.sh
+bindsym $mod+Shift+F2 exec ~/.screenlayout/mouarius-work.sh
+
+# MOVE WORKSPACE TO MONITOR
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Right move workspace to output right
 
 
 # WORKSPACES
@@ -274,12 +286,12 @@ bindsym $mod+d exec rofi -show drun
 
 # Borders
   # Also removes all title bars
-  for_window [class="^.*"] border pixel 0
-  # default_border pixel 2
+  for_window [class="^.*"] border pixel 2
+  default_border pixel 2
   # default_floating_border pixel 2
 
   # Hide borders at the edge of the screen
-  # hide_edge_borders smart
+  hide_edge_borders smart
 
   # Set colours various window states
   # Syntax: client.<class> <border> <background> <text> [<indicator> [<child_border>]]
@@ -303,7 +315,7 @@ bindsym $mod+d exec rofi -show drun
       # unfocused	    #333333	#222222	    #888888	#292d2e	    #222222
       # urgent	    #2f343a	#900000	    #ffffff	#900000	    #900000
       # placeholder	#000000	#0c0c0c	    #ffffff	#000000 	#0c0c0c
-  client.focused           #9aa5ce #364A82 #c0caf5 #9aa5ce   $clr-bg-highlight
+  client.focused           #9aa5ce #364A82 #c0caf5 #9aa5ce   $clr-purple
   client.focused_inactive  #16161d #16161d #c0caf5 #16161d   $clr-bg-dark
   client.unfocused         #16161d #16161d #c0caf5 #16161d   $clr-bg-dark
 
