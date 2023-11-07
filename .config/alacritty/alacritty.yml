@@ -4,7 +4,14 @@ env:
   WINIT_X11_SCALE_FACTOR: "1"
 font:
   normal:
-    family: "MesloLGM Nerd Font"
+    family: Fira Code
+    style: Regular
+  bold:
+    family: Fira Code
+    style: Bold
+  italic:
+    family: Fira Code
+    style: Italic
 
 window:
   opacity: 1

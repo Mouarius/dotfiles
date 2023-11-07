@@ -42,5 +42,6 @@ alias pm "python manage.py"
 # pre-commit
 alias pcr "pre-commit run"
 
+
 command -qv nvim && alias vim nvim
 set -gx EDITOR nvim

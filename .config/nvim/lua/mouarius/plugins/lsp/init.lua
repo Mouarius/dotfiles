@@ -56,6 +56,11 @@ return {
         end,
       })
 
+      lspconfig.cssls.setup({
+        filetypes = { "css", "scss", "less", "html", "htmldjango" }
+
+      })
+
         vim.keymap.set("n", "ùd", vim.diagnostic.goto_next, { desc = "Goto next diagnostics" })
         vim.keymap.set("n", "%D", vim.diagnostic.goto_prev, { desc = "Goto previous diagnostics" })
 
@@ -66,6 +71,7 @@ return {
           "black",
           "xo",
           "stylua",
+          "cssls"
         },
       })
       require("mason-lspconfig").setup({
@@ -78,6 +84,7 @@ return {
           "eslint",
           -- python
           "pyright",
+          "stylelint"
         },
         handlers = {
           lsp_zero.default_setup,

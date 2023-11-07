@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:MesloLGM NerdFont 11
+font pango:Fira Code 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -286,9 +286,9 @@ bindsym $mod+d exec rofi -show drun
 
 # Borders
   # Also removes all title bars
-  for_window [class="^.*"] border pixel 2
-  default_border pixel 2
-  # default_floating_border pixel 2
+  for_window [class="^.*"] border none
+  default_border none
+  default_floating_border none
 
   # Hide borders at the edge of the screen
   hide_edge_borders smart
@@ -320,7 +320,11 @@ bindsym $mod+d exec rofi -show drun
   client.unfocused         #16161d #16161d #c0caf5 #16161d   $clr-bg-dark
 
 # Gaps
-  gaps inner 8
-  gaps outer 2
-  smart_gaps on
+  gaps inner 12
+  gaps outer 1
+  smart_gaps off
+
+# CUSTOM CONFIG
+for_window [class="jetbrains-pycharm"] move container to workspace $ws2
+no_focus [class="jetbrains-pycharm" window_type="dialog"]
 
