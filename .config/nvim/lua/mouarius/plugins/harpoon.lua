@@ -1,4 +1,4 @@
-return{
+return {
   "ThePrimeagen/harpoon",
   config = function()
     -- set keymaps
@@ -10,13 +10,23 @@ return{
       "<cmd>lua require('harpoon.mark').add_file()<cr>",
       { desc = "Mark file with harpoon" }
     )
-    keymap.set("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>", { desc = "Go to next harpoon mark" })
+    keymap.set(
+      "n",
+      "<leader>hn",
+      "<cmd>lua require('harpoon.ui').nav_next()<cr>",
+      { desc = "Go to next harpoon mark" }
+    )
     keymap.set(
       "n",
       "<leader>hp",
       "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
       { desc = "Go to previous harpoon mark" }
     )
-    keymap.set("n", "<leader>hl", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", {desc = "Toggle harpoon menu"})
+    keymap.set(
+      "n",
+      "<leader>hl",
+      "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
+      { desc = "Toggle harpoon menu" }
+    )
   end,
 }

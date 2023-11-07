@@ -9,9 +9,7 @@ return {
       offsets = {
         {
           filetype = "NvimTree",
-          text = function()
-            return vim.fn.getcwd()
-          end,
+          text = "",
           text_align = "left",
         },
       },

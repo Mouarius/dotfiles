@@ -35,7 +35,6 @@ return {
             file = true,
             folder = true,
             folder_arrow = true,
-            git = false,
           },
           glyphs = {
             default = "󰈚",
@@ -49,15 +48,6 @@ return {
               symlink_open = "",
               arrow_open = "",
               arrow_closed = "",
-            },
-            git = {
-              unstaged = "✗",
-              staged = "✓",
-              unmerged = "",
-              renamed = "➜",
-              untracked = "★",
-              deleted = "",
-              ignored = "◌",
             },
           },
         },
