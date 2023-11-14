@@ -59,8 +59,6 @@ return {
         filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
       })
 
-			vim.keymap.set("n", "ùd", vim.diagnostic.goto_next, { desc = "Goto next diagnostics" })
-			vim.keymap.set("n", "%D", vim.diagnostic.goto_prev, { desc = "Goto previous diagnostics" })
 
 			require("mason").setup({
 				ensure_installed = {

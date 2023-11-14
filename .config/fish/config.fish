@@ -1,7 +1,6 @@
-set -g fish_greeting " "
+set -g fish_greeting ""
 
 if status is-interactive
-  fish_vi_key_bindings
   set -gx PATH "/home/linuxbrew/.linuxbrew/bin" $PATH
   oh-my-posh init fish --config "$HOME/.config/fish/themes/custom-mouarius.omp.json" | source
 end

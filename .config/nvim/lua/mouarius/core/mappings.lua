@@ -1,27 +1,47 @@
-vim.g.mapleader = " "
-vim.keymap.set("n", "<C-n>", vim.cmd.Ex)
+local M = {}
 
-vim.keymap.set("n", "L", "$")
-vim.keymap.set("n", "H", "^")
+vim.keymap.set("n", "è", "]", {remap = true})
+vim.keymap.set("n", "é", "[", {remap = true})
 
--- windows
-vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<cr>", {desc = "Split vertically"})
-vim.keymap.set("n", "<leader>sh", "<cmd>split<cr>", {desc = "Split horizontally"})
-vim.keymap.set("n", "<leader>x", "<cmd>close<cr>", {desc = "Close"})
+M.general = {
+	n = {
+		["L"] = { "$", "Go to end of line" },
+		["H"] = { "^", "Go to beginning of line" },
 
-vim.keymap.set("n", "<leader>nh", "<cmd>nohl<cr>", {desc = "[N]o [H]ighlighting"})
+		["<leader>dn"] = { vim.diagnostic.goto_next, "Goto next diagnostics" },
+		["<leader>dp"] = { vim.diagnostic.goto_prev, "Goto previous diagnostics" },
 
--- tabs & buffers
-vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
-vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
-vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" })
+		["<leader>nh"] = { "<cmd>nohl<cr>", "[N]o [H]ighlighting" },
+		["<leader>sv"] = { "<cmd>vsplit<cr>", "Split vertically" },
+		["<leader>sh"] = { "<cmd>split<cr>", "Split horizontally" },
+		["<leader>sx"] = { "<cmd>close<cr>", "Close Split" },
+		["<leader>sm"] = { "<C-w>_", "Maximize split" },
+		["<leader>se"] = { "<C-w>=", "Make split equal size" },
+		-- tabs
+		["<leader>tc"] = { "<cmd>tabnew<CR>", "Open new tab" },
+		["<leader>tx"] = { "<cmd>tabclose<CR>", "Close current tab" },
+		["<leader>tf"] = { "<cmd>tabnew %<CR>", "Open current buffer in new tab" },
+		["<leader>tn"] = { "<cmd>tabnext<CR>", "Go to next tab" },
+		["<leader>tp"] = { "<cmd>tabprev<CR>", "Go to previous tab" },
 
-vim.keymap.set("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', {desc = "Don't copy removed text", silent = true})
-vim.keymap.set("x", "<leader>p", '"_dP', {desc = "Paste not deleted"})
+	},
+	x = {
+		["<leader>p"] = { '"_dP', "Paste not deleted" },
+	},
+	v = {
+		[">"] = { ">gv", "Indent selection" },
+		["<"] = { "<gv", "Deindent selection" },
+	},
+}
 
--- VISUAL MODE
-vim.keymap.set("v", ">", ">gv")
-vim.keymap.set("v", "<", "<gv")
+M.bufferline = {
+  n = {
+		["<Tab>"] = { "<cmd>BufferLineCycleNext<CR>", "Go to next buffer" },
+		["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "Go to previous buffer" },
+    ["<leader>bl"] = {"<cmd>BufferLineMovePrev<CR>", "Move buffer tab to left"},
+    ["<leader>bh"] = {"<cmd>BufferLineMovePrev<CR>", "Move buffer tab to left"},
+    ["<leader>bx"] = {"<cmd>bdelete<CR>", "Close buffer"},
+  }
+}
 
+return M

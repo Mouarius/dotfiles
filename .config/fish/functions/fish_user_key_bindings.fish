@@ -1,6 +1,8 @@
 function fish_user_key_bindings
-  # peco
-  bind \cr peco_select_history # Bind for peco select history to Ctrl+R
-  bind \cf peco_change_directory # Bind for peco change directory to Ctrl+F
-
+  fish_default_key_bindings -M insert
+  fish_vi_key_bindings --no-erase insert
+  bind \cfg fzf_ghq
+  bind \cfh fzf_history
+  bind \cfz fzf_z
+  bind \cff fzf_file
 end

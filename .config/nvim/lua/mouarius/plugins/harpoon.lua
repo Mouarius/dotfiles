@@ -1,32 +1,34 @@
 return {
   "ThePrimeagen/harpoon",
   config = function()
+    local harpoon = require("harpoon")
+    harpoon.setup({})
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
 
     keymap.set(
       "n",
-      "<leader>hm",
-      "<cmd>lua require('harpoon.mark').add_file()<cr>",
-      { desc = "Mark file with harpoon" }
+      "<leader>mm",
+      "<cmd>lua require('harpoon.mark').add_file()<CR>",
+      { desc = "Mark file with harpoon" , silent = true}
     )
     keymap.set(
       "n",
-      "<leader>hn",
+      "<leader>mn",
       "<cmd>lua require('harpoon.ui').nav_next()<cr>",
-      { desc = "Go to next harpoon mark" }
+      { desc = "Go to next harpoon mark" , silent = true }
     )
     keymap.set(
       "n",
-      "<leader>hp",
+      "<leader>mp",
       "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
-      { desc = "Go to previous harpoon mark" }
+      { desc = "Go to previous harpoon mark" , silent = true }
     )
     keymap.set(
       "n",
-      "<leader>hl",
+      "<leader>ml",
       "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
-      { desc = "Toggle harpoon menu" }
+      { desc = "Toggle harpoon menu" , silent = true }
     )
   end,
 }
