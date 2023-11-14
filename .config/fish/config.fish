@@ -1,8 +1,9 @@
 set -g fish_greeting ""
-set fish_user_paths /home/linuxbrew/.linuxbrew/bin /home/mariusmenault/.local/bin $fish_user_paths
-  if status is-interactive
-    oh-my-posh init fish --config "$HOME/.config/fish/themes/amro-custom-mouarius.omp.json" | source
-  end
+
+if status is-interactive
+  set -gx PATH "/home/linuxbrew/.linuxbrew/bin" $PATH
+  oh-my-posh init fish --config "$HOME/.config/fish/themes/custom-mouarius.omp.json" | source
+end
 
 alias dc cd
 

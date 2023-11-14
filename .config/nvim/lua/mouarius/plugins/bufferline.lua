@@ -1,17 +1,21 @@
 return {
   "akinsho/bufferline.nvim",
   version = "*",
-  dependencies = "nvim-tree/nvim-web-devicons",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "nvim-tree/nvim-tree.lua",
+    "nvim-treesitter/nvim-treesitter",
+  },
+  event = "BufReadPre",
+  init = function()
+    local mappings = require("mouarius.core.mappings").bufferline
+    require("mouarius.core.utils").load_mappings(mappings)
+  end,
   opts = {
     options = {
-      mode = "buffers",
-      themable = true,
-      diagnostics = "nvim_lsp",
       offsets = {
         {
           filetype = "NvimTree",
-          text = "",
-          text_align = "left",
         },
       },
     },

@@ -39,7 +39,8 @@ SETUVAR _fisher_gazorby_2F_fish_2D_exa_files:\x7e/\x2econfig/fish/functions/exa_
 SETUVAR _fisher_jethrokuan_2F_z_files:\x7e/\x2econfig/fish/functions/__z\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_add\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_clean\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_complete\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejethrokuan/z\x1ejorgebucaran/nvm\x2efish\x1ecatppuccin/fish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejethrokuan/z\x1ejorgebucaran/nvm\x2efish\x1ecatppuccin/fish\x1etakashabe/fish\x2dfzf
+SETUVAR _fisher_takashabe_2F_fish_2D_fzf_files:\x7e/\x2econfig/fish/functions/fzf_cd\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_file\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_gcloud_configurations\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_ghq\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_history\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_k8s_context\x2efish\x1e\x7e/\x2econfig/fish/functions/fzf_z\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:6c7086
 SETUVAR fish_color_cancel:f38ba8

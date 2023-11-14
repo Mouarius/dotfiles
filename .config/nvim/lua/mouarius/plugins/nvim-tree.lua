@@ -30,40 +30,29 @@ return {
 				root_folder_label = true,
 				highlight_opened_files = "none",
 
-				icons = {
-					show = {
-						file = true,
-						folder = true,
-						folder_arrow = true,
-						git = false,
-					},
-					glyphs = {
-						default = "󰈚",
-						symlink = "",
-						folder = {
-							default = "",
-							empty = "",
-							empty_open = "",
-							open = "",
-							symlink = "",
-							symlink_open = "",
-							arrow_open = "",
-							arrow_closed = "",
-						},
-						git = {
-							unstaged = "✗",
-							staged = "✓",
-							unmerged = "",
-							renamed = "➜",
-							untracked = "★",
-							deleted = "",
-							ignored = "◌",
-						},
-					},
-				},
-			},
-		})
-
+        icons = {
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = true,
+          },
+          glyphs = {
+            default = "󰈚",
+            symlink = "",
+            folder = {
+              default = "",
+              empty = "",
+              empty_open = "",
+              open = "",
+              symlink = "",
+              symlink_open = "",
+              arrow_open = "",
+              arrow_closed = "",
+            },
+          },
+        },
+      },
+    })
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 
