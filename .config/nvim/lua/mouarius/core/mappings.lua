@@ -10,14 +10,12 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", {desc = "Scroll down and center"})
 -- windows
 vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<cr>", {desc = "Split vertically"})
 vim.keymap.set("n", "<leader>sh", "<cmd>split<cr>", {desc = "Split horizontally"})
-vim.keymap.set("n", "<leader>x", "<cmd>close<cr>", {desc = "Close"})
+vim.keymap.set("n", "<leader>x", "<cmd>bdelete<cr>", {desc = "Close"})
+vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", {desc = "Quit"})
 
 vim.keymap.set("n", "<leader>nh", "<cmd>nohl<cr>", {desc = "[N]o [H]ighlighting"})
 
 -- tabs & buffers
-vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" })
 

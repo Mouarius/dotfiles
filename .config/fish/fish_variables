@@ -19,7 +19,7 @@ SETUVAR --export EXA_LO_OPTIONS:\x2d\x2doneline
 SETUVAR --export EXA_LT_OPTIONS:\x2d\x2dtree\x1e\x2d\x2dlevel
 SETUVAR --export EXA_L_OPTIONS:\x1d
 SETUVAR --export EXA_STANDARD_OPTIONS:\x2dl\x1e\x2dg\x1e\x2d\x2dicons
-SETUVAR --export TERMINAL:kitty
+SETUVAR --export TERMINAL:/home/mariusmenault/\x2elocal/bin/kitty
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/mariusmenault/\x2elocal/share/z/data

@@ -14,14 +14,22 @@ return {
 
 			insert = {
 				a = { fg = colors.base, bg = colors.green },
+				b = { fg = colors.subtext1, bg = colors.base },
+				c = { fg = colors.subtext1, bg = colors.base },
 				z = { fg = colors.green, bg = colors.base },
 			},
-			visual = { a = { fg = colors.base, bg = colors.mauve },
+			visual = {
+				a = { fg = colors.base, bg = colors.mauve },
+				b = { fg = colors.subtext1, bg = colors.base },
+				c = { fg = colors.subtext1, bg = colors.base },
 				z = { fg = colors.mauve, bg = colors.base },
-      },
-			replace = { a = { fg = colors.base, bg = colors.red },
+			},
+			replace = {
+				a = { fg = colors.base, bg = colors.red },
+				b = { fg = colors.subtext1, bg = colors.base },
+				c = { fg = colors.subtext1, bg = colors.base },
 				z = { fg = colors.red, bg = colors.base },
-      },
+			},
 
 			inactive = {
 				a = { fg = colors.text, bg = colors.base },

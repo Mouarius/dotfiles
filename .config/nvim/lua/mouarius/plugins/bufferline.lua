@@ -5,13 +5,12 @@ return {
   opts = {
     options = {
       mode = "buffers",
+      themable = true,
       diagnostics = "nvim_lsp",
       offsets = {
         {
           filetype = "NvimTree",
-          text = function()
-            return vim.fn.getcwd()
-          end,
+          text = "",
           text_align = "left",
         },
       },

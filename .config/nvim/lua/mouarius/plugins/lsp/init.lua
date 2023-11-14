@@ -13,7 +13,6 @@ return {
         -- keymaps
         lsp_zero.default_keymaps({ buffer = bufnr })
 
-
         -- custom command
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
           vim.lsp.buf.format()
@@ -57,12 +56,11 @@ return {
       })
 
       lspconfig.cssls.setup({
-        filetypes = { "css", "scss", "less", "html", "htmldjango" }
-
+        filetypes = { "css", "scss", "less", "html", "htmldjango" },
       })
 
-        vim.keymap.set("n", "ùd", vim.diagnostic.goto_next, { desc = "Goto next diagnostics" })
-        vim.keymap.set("n", "%D", vim.diagnostic.goto_prev, { desc = "Goto previous diagnostics" })
+      vim.keymap.set("n", "ùd", vim.diagnostic.goto_next, { desc = "Goto next diagnostics" })
+      vim.keymap.set("n", "%D", vim.diagnostic.goto_prev, { desc = "Goto previous diagnostics" })
 
       require("mason").setup({
         ensure_installed = {
@@ -71,7 +69,7 @@ return {
           "black",
           "xo",
           "stylua",
-          "cssls"
+          "cssls",
         },
       })
       require("mason-lspconfig").setup({
@@ -84,7 +82,6 @@ return {
           "eslint",
           -- python
           "pyright",
-          "stylelint"
         },
         handlers = {
           lsp_zero.default_setup,
