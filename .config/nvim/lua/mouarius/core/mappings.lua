@@ -1,7 +1,7 @@
 local M = {}
 
-vim.keymap.set("n", "è", "]", {remap = true})
-vim.keymap.set("n", "é", "[", {remap = true})
+vim.keymap.set("n", "è", "]", { remap = true })
+vim.keymap.set("n", "é", "[", { remap = true })
 
 M.general = {
 	n = {
@@ -24,6 +24,11 @@ M.general = {
 		["<leader>tn"] = { "<cmd>tabnext<CR>", "Go to next tab" },
 		["<leader>tp"] = { "<cmd>tabprev<CR>", "Go to previous tab" },
 
+		-- Resize window using <ctrl> arrow keys
+		["<C-Up>"] = { "<cmd>resize +2<cr>", "Increase window height" },
+		["<C-Down>"] = { "<cmd>resize -2<cr>", "Decrease window height" },
+		["<C-Left>"] = { "<cmd>vertical resize -2<cr>", "Decrease window width" },
+		["<C-Right>"] = { "<cmd>vertical resize +2<cr>", "Increase window width" },
 	},
 	x = {
 		["<leader>p"] = { '"_dP', "Paste not deleted" },
@@ -35,13 +40,13 @@ M.general = {
 }
 
 M.bufferline = {
-  n = {
+	n = {
 		["<Tab>"] = { "<cmd>BufferLineCycleNext<CR>", "Go to next buffer" },
 		["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "Go to previous buffer" },
-    ["<leader>bl"] = {"<cmd>BufferLineMovePrev<CR>", "Move buffer tab to left"},
-    ["<leader>bh"] = {"<cmd>BufferLineMovePrev<CR>", "Move buffer tab to left"},
-    ["<leader>bx"] = {"<cmd>bdelete<CR>", "Close buffer"},
-  }
+		["<leader>bl"] = { "<cmd>BufferLineMovePrev<CR>", "Move buffer tab to left" },
+		["<leader>bh"] = { "<cmd>BufferLineMovePrev<CR>", "Move buffer tab to left" },
+		["<leader>bx"] = { "<cmd>bdelete<CR>", "Close buffer" },
+	},
 }
 
 return M
