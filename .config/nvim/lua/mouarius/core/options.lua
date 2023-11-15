@@ -32,7 +32,8 @@ opt.signcolumn = "yes"
 opt.backspace = "indent,eol,start"
 
 -- clipboard
-opt.clipboard:append("unnamedplus")
+-- opt.clipboard:append("unnamedplus")
+opt.clipboard = "unnamedplus"
 
 -- split window
 opt.splitright = true
@@ -42,3 +43,5 @@ opt.swapfile = false
 
 opt.laststatus = 3
 opt.cmdheight = 0
+opt.showmode = false
+opt.list = true
