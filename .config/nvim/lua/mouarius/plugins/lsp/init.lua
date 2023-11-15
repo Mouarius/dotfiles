@@ -67,6 +67,7 @@ return {
 					"xo",
 					"stylua",
 					"volar",
+          "lemminx"
 				},
 			})
 			require("mason-lspconfig").setup({

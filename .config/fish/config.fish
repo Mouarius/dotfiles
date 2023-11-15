@@ -24,18 +24,18 @@ alias config "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 
 # git
-alias g git
-alias gs "git status"
-alias gc "git commit"
-alias gcm "git commit -m"
-alias ga "git add"
-alias gal "git add ."
-alias gps "git push"
-alias gpl "git pull"
-alias gk "git checkout" 
-alias gkb "git checkout -b"
-alias glog "git log --graph --oneline --decorate"
-alias gm "git merge"
+alias g  'LC_ALL=en_GB git'
+alias gs "g status"
+alias gc "g commit"
+alias gcm "g commit -m"
+alias ga "g add"
+alias gal "g add ."
+alias gps "g push"
+alias gpl "g pull"
+alias gk "g checkout" 
+alias gkb "g checkout -b"
+alias glog "g log --graph --oneline --decorate"
+alias gm "g merge"
 
 # django
 alias pm "python manage.py"
