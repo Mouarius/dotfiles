@@ -45,7 +45,6 @@ M.bufferline = {
 		["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "Go to previous buffer" },
 		["<leader>bl"] = { "<cmd>BufferLineMovePrev<CR>", "Move buffer tab to left" },
 		["<leader>bh"] = { "<cmd>BufferLineMovePrev<CR>", "Move buffer tab to left" },
-		["<leader>bx"] = { "<cmd>bdelete<CR>", "Close buffer" },
 	},
 }
 

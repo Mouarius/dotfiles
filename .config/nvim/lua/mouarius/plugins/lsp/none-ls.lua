@@ -5,7 +5,6 @@ return {
     local null_ls = require("null-ls")
     local sources = {
       null_ls.builtins.code_actions.gitsigns,
-      null_ls.builtins.code_actions.eslint,
       null_ls.builtins.code_actions.refactoring,
 
       null_ls.builtins.completion.tags,
@@ -13,7 +12,6 @@ return {
       null_ls.builtins.diagnostics.mypy,
       null_ls.builtins.diagnostics.codespell,
       null_ls.builtins.diagnostics.djlint,
-      null_ls.builtins.diagnostics.eslint,
       null_ls.builtins.diagnostics.luacheck,
       null_ls.builtins.diagnostics.shellcheck,
       null_ls.builtins.diagnostics.ruff,
