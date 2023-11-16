@@ -24,7 +24,7 @@ alias config "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 
 # git
-alias g  'LC_ALL=en_GB git'
+alias g  'git'
 alias gs "g status"
 alias gc "g commit"
 alias gcm "g commit -m"
