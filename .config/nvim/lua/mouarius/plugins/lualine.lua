@@ -11,7 +11,6 @@ return {
         c = { fg = colors.subtext1, bg = colors.base },
         z = { fg = colors.yellow, bg = colors.base },
       },
-
       insert = {
         a = { fg = colors.base, bg = colors.green },
         z = { fg = colors.green, bg = colors.base },

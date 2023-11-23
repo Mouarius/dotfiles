@@ -3,6 +3,9 @@ local M = {}
 vim.keymap.set("n", "^", "]", { remap = true })
 vim.keymap.set("n", "¨", "[", { remap = true })
 
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {desc = "Scroll up and center"})
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {desc = "Scroll down and center"})
+
 M.general = {
 	n = {
 		["L"] = { "$", "Go to end of line" },

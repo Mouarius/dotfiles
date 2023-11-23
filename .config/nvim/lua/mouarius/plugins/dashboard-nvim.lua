@@ -33,9 +33,5 @@ return {
       },
     }
   end,
-  config = function(_, opts)
-    require("dashboard").setup(opts)
-    vim.cmd([[ silent Dashboard ]])
-  end,
   dependencies = { { "nvim-tree/nvim-web-devicons" } },
 }
