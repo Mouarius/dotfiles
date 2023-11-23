@@ -15,7 +15,6 @@ M.general = {
 		["<leader>sv"] = { "<cmd>vsplit<cr>", "Split vertically" },
 		["<leader>sh"] = { "<cmd>split<cr>", "Split horizontally" },
 		["<leader>sx"] = { "<cmd>close<cr>", "Close Split" },
-		["<leader>sm"] = { "<C-w>_", "Maximize split" },
 		["<leader>se"] = { "<C-w>=", "Make split equal size" },
 		-- tabs
 		["<leader>tc"] = { "<cmd>tabnew<CR>", "Open new tab" },

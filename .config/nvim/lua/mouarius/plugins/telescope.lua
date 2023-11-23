@@ -69,11 +69,15 @@ return {
       end,
       desc = "Find files",
     },
-
     {
       "<leader>fr",
       "<cmd>Telescope frecency<cr>",
       desc = "Find files by frecency",
+    },
+    {
+      "<leader>fo",
+      "<cmd>Telescope oldfiles<cr>",
+      desc = "Find recent files",
     },
     {
       "<leader>fg",

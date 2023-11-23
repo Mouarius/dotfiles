@@ -4,6 +4,7 @@ vim.g.mapleader = " "
 
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
+
 -- line numbers
 opt.relativenumber = true
 opt.number = true
@@ -34,7 +35,6 @@ opt.signcolumn = "yes"
 opt.backspace = "indent,eol,start"
 
 -- clipboard
--- opt.clipboard:append("unnamedplus")
 opt.clipboard = "unnamedplus"
 
 -- split window
@@ -46,4 +46,3 @@ opt.swapfile = false
 opt.laststatus = 3
 opt.cmdheight = 0
 opt.showmode = false
-opt.list = true

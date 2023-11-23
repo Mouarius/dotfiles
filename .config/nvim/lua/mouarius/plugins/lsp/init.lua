@@ -1,35 +1,12 @@
 return {
-  { "williamboman/mason.nvim" },
-  { "williamboman/mason-lspconfig.nvim" },
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
-    lazy = false,
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     dependencies = {
       "folke/neodev.nvim",
-    },
-    keys = {
-      {
-        "<leader>cf",
-        function()
-          vim.lsp.buf.format()
-        end,
-        desc = "LSP: Format",
-      },
-      {
-        "<leader>cr",
-        function()
-          vim.lsp.buf.rename()
-        end,
-        desc = "LSP: Rename",
-      },
-      {
-        "<leader>ca",
-        function()
-          vim.lsp.buf.code_action()
-        end,
-        desc = "LSP: Code actions",
-      },
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
     },
     opts = {
       diagnostics = {
@@ -56,16 +33,45 @@ return {
         handlers = {
           lsp_zero.default_setup,
           lua_ls = function()
-            -- (Optional) configure lua language server
             local lua_opts = lsp_zero.nvim_lua_ls()
             require("lspconfig").lua_ls.setup(lua_opts)
           end,
         },
       })
     end,
+    keys = {
+      {
+        "<leader>cf",
+        function()
+          vim.lsp.buf.format()
+        end,
+        desc = "LSP: Format",
+      },
+      {
+        "<leader>cr",
+        function()
+          vim.lsp.buf.rename()
+        end,
+        desc = "LSP: Rename",
+      },
+      {
+        "<leader>ca",
+        function()
+          vim.lsp.buf.code_action()
+        end,
+        desc = "LSP: Code actions",
+      },
+      {
+        "gd",
+        "<cmd>Telescope lsp_definitions<CR>",
+        desc = "LSP: find definitions",
+      }
+    },
   },
-  { "neovim/nvim-lspconfig" },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/nvim-cmp" },
-  { "L3MON4D3/LuaSnip" },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      { "hrsh7th/cmp-nvim-lsp" },
+    },
+  },
 }

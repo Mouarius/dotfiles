@@ -49,12 +49,6 @@ return {
 				use_libuv_file_watcher = true,
 				hijack_netrw_behavior = "open_default",
 			},
-			mappings = {
-				["o"] = {
-					"toggle_node",
-					nowait = true,
-				},
-			},
 		},
 	},
 }
