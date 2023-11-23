@@ -30,6 +30,17 @@ return {
         end,
         desc = "LSP: Code actions",
       },
+      {
+        "<leader>cd",
+        function()
+          vim.cmd("vsplit")
+          local win = vim.api.nvim_get_current_win()
+          local buf = vim.api.nvim_create_buf(true, true)
+          vim.api.nvim_win_set_buf(win, buf)
+          vim.lsp.buf.definition()
+        end,
+        desc = "LSP: Open definition in vsplit"
+      }
     },
     opts = {
       diagnostics = {
@@ -48,6 +59,7 @@ return {
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
           vim.lsp.buf.format()
         end, { desc = "Format current buffer with LSP" })
+
       end)
 
       local lspconfig = require("lspconfig")
