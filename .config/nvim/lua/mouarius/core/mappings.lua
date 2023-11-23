@@ -1,7 +1,7 @@
 local M = {}
 
-vim.keymap.set("n", "è", "]", { remap = true })
-vim.keymap.set("n", "é", "[", { remap = true })
+vim.keymap.set("n", "^", "]", { remap = true })
+vim.keymap.set("n", "¨", "[", { remap = true })
 
 M.general = {
 	n = {
