@@ -2,26 +2,64 @@ return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.4",
   lazy = false,
-  dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
-  opts = {
-    defaults = {
-      sorting_strategy = "ascending",
-      layout_strategy = "horizontal",
-      layout_config = {
-        horizontal = {
-          prompt_position = "top",
-        },
-        vertical = {
-          mirror = false,
-        },
-      },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+      enabled = vim.fn.executable("make") == 1,
+    },
+    {
+      "nvim-telescope/telescope-frecency.nvim",
     },
   },
+  opts = function()
+    local actions = require("telescope.actions")
+    local find_files_no_ignore = function()
+      print("h")
+      local action_state = require("telescope.actions.state")
+      local line = action_state.get_current_line()
+      require("telescope.builtin").find_files({ no_ignore = true, default_text = line })
+    end
+    local find_files_with_hidden = function()
+      local action_state = require("telescope.actions.state")
+      local line = action_state.get_current_line()
+      require("telescope.builtin").find_files({ hidden = true, default_text = line })
+    end
+    return {
+      defaults = {
+        sorting_strategy = "ascending",
+        layout_strategy = "horizontal",
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+          },
+          vertical = {
+            mirror = false,
+          },
+        },
+        mappings = {
+          i = {
+            ["î"] = find_files_no_ignore,
+            ["Ì"] = find_files_with_hidden,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-Down>"] = actions.cycle_history_next,
+            ["<C-Up>"] = actions.cycle_history_prev,
+            ["<C-f>"] = actions.preview_scrolling_down,
+            ["<C-b>"] = actions.preview_scrolling_up,
+          },
+        },
+      },
+    }
+  end,
   config = function(_, opts)
     local telescope = require("telescope")
     telescope.setup(opts)
+    telescope.load_extension("fzf")
     telescope.load_extension("harpoon")
     telescope.load_extension("refactoring")
+    telescope.load_extension("frecency")
   end,
   keys = {
     {
@@ -30,6 +68,12 @@ return {
         require("telescope.builtin").find_files()
       end,
       desc = "Find files",
+    },
+
+    {
+      "<leader>fr",
+      "<cmd>Telescope frecency<cr>",
+      desc = "Find files by frecency",
     },
     {
       "<leader>fg",
@@ -68,11 +112,15 @@ return {
     },
     {
       "<leader>fS",
-      "",
       function()
         require("telescope.builtin").lsp_dynamic_workspace_symbols()
       end,
       desc = "Goto Symbol (Workspace)",
+    },
+    {
+      "gr",
+      "<cmd>Telescope lsp_references <cr>",
+      desc = "LSP: List references",
     },
   },
 }
