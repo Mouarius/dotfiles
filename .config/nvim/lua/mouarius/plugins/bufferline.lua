@@ -17,7 +17,7 @@ return {
       close_command = function(n) require("mini.bufremove").delete(n, false) end,
       offsets = {
         {
-          filetype = "NvimTree",
+          filetype = "neo-tree",
         },
       },
     },
