@@ -248,6 +248,7 @@ bindsym --release XF86PowerOff mode "$mode_power"
 # SCREEN LAYOUT
 bindsym $mod+Shift+F1 exec ~/.screenlayout/mouarius-solo.sh
 bindsym $mod+Shift+F2 exec ~/.screenlayout/mouarius-work.sh
+bindsym $mod+Shift+F3 exec ~/.screenlayout/mouarius-home.sh
 
 # MOVE WORKSPACE TO MONITOR
 bindsym $mod+Ctrl+Left move workspace to output left

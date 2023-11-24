@@ -2,10 +2,11 @@ return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",         -- source for text in buffer
     "hrsh7th/cmp-path",           -- source for file system paths
     "L3MON4D3/LuaSnip",           -- snippet engine
-    "saadparwaiz1/cmp_luasnip",   -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim",       -- vs-code like pictograms
   },
@@ -31,7 +32,7 @@ return {
         return true
       end,
       completion = {
-        completeopt = "menu,menuone,preview,noselect",
+        completeopt = "menu,menuone,noinsert",
       },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)

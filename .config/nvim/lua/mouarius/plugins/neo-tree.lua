@@ -8,24 +8,17 @@ return {
 			function()
 				require("neo-tree.command").execute({ toggle = true, reveal = true })
 			end,
-			desc = "Explorer NeoTree (root dir)",
+			desc = "Explorer NeoTree",
 		},
 		{
-			"<C-N>",
-			function()
-				require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-			end,
-			desc = "Explorer NeoTree (cwd)",
-		},
-		{
-			"<leader>ge",
+			"<leader>eg",
 			function()
 				require("neo-tree.command").execute({ source = "git_status", toggle = true })
 			end,
 			desc = "Git explorer",
 		},
 		{
-			"<leader>be",
+			"<leader>eb",
 			function()
 				require("neo-tree.command").execute({ source = "buffers", toggle = true })
 			end,
@@ -43,17 +36,16 @@ return {
 	},
 	opts = {
 		window = {
-			filesystem = {
-				bind_to_cwd = false,
-				follow_current_file = { enabled = true },
-				use_libuv_file_watcher = true,
-				hijack_netrw_behavior = "open_default",
-			},
 			mappings = {
-				["o"] = {
-					"toggle_node",
-					nowait = true,
-				},
+				["space"] = "none",
+			},
+		},
+		filesystem = {
+			bind_to_cwd = false,
+			follow_current_file = { enabled = true },
+			use_libuv_file_watcher = true,
+			hijack_netrw_behavior = "open_default",
+			window = {
 			},
 		},
 	},
