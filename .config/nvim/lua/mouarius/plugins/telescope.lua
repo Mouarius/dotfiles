@@ -69,11 +69,15 @@ return {
       end,
       desc = "Find files",
     },
-
     {
       "<leader>fr",
       "<cmd>Telescope frecency<cr>",
       desc = "Find files by frecency",
+    },
+    {
+      "<leader>fo",
+      "<cmd>Telescope oldfiles<cr>",
+      desc = "Find recent files",
     },
     {
       "<leader>fw",
@@ -133,7 +137,6 @@ return {
     },
     {
       "<leader>fd",
-      "",
       function()
         require("telescope.builtin").lsp_definitions()
       end,
@@ -144,5 +147,10 @@ return {
       "<cmd>Telescope lsp_references <cr>",
       desc = "LSP: List references",
     },
+      {
+        "gd",
+        "<cmd>Telescope lsp_definitions<CR>",
+        desc = "LSP: find definitions",
+      },
   },
 }
