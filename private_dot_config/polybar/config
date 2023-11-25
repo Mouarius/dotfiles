@@ -1,0 +1,222 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[tokyonight]
+clr-bg-dark = #1f2335
+clr-bg = #24283b
+clr-bg-highlight = #292e42
+clr-terminal_black = #414868
+clr-fg = #c0caf5
+clr-fg_dark = #a9b1d6
+clr-fg_gutter = #3b4261
+clr-dark3 = #545c7e
+clr-comment = #565f89
+clr-dark5 = #737aa2
+clr-blue0 = #3d59a1
+clr-blue = #7aa2f7
+clr-cyan = #7dcfff
+clr-blue1 = #2ac3de
+clr-blue2 = #0db9d7
+clr-blue5 = #89ddff
+clr-blue6 = #b4f9f8
+clr-blue7 = #394b70
+clr-magenta = #bb9af7
+clr-magenta2 = #ff007c
+clr-purple = #9d7cd8
+clr-orange = #ff9e64
+clr-yellow = #e0af68
+clr-green = #9ece6a
+clr-green1 = #73daca
+clr-green2 = #41a6b5
+clr-teal = #1abc9c
+clr-red = #f7768e
+clr-red1 = #db4b4b
+
+[catppuccin]
+test = #ff0000
+
+[colors]
+background = #1E1E2E
+background-alt = ${tokyonight.clr-bg-highlight}
+foreground = #CDD6F4
+primary = #F9E2AF
+secondary = #89B4FA
+alert = #F38BA8
+disabled = #585B70
+
+[bar/mouarius]
+width = 100%
+height = 24px
+radius = 0
+monitor = ${env:MONITOR:}
+; dpi = 96
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3pt
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 1
+padding-right = 2
+
+module-margin = 1
+
+separator = "  "
+separator-foreground = ${colors.disabled}
+
+font-0 = "MesloLGM NerdFont;2"
+
+modules-left = xworkspaces
+modules-right = filesystem pulseaudio xkeyboard memory cpu date
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+
+; wm-restack = generic
+; wm-restack = bspwm
+; wm-restack = i3
+
+; override-redirect = true
+
+[module/systray]
+type = internal/tray
+
+format-margin = 8pt
+tray-spacing = 16pt
+
+[module/xworkspaces]
+type = internal/xworkspaces
+pin-workspaces = true
+
+icon-0 = 10: music;󰽴
+icon-1 = 1: misc;󱁤
+icon-2 = 2: code;
+icon-3 = 3: terminal;
+icon-4 = 4: firefox_1;󰈹
+icon-5 = 5: firefox_2;󰈹
+icon-8 = 8: slack;󰒱
+icon-9 = 9: trello;
+icon-default = 
+
+label-active = %name% %icon%
+label-active-background = ${colors.background-alt}
+label-active-underline= ${colors.primary}
+label-active-padding = 1
+
+label-occupied = %icon%
+label-occupied-padding = 1
+
+label-urgent = %name% %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %icon%
+label-empty-foreground = ${colors.disabled}
+label-empty-padding = 1
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
+label-mounted-foreground = ${colors.primary}
+
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.disabled}
+format-mounted = 󰋊 <label-mounted>
+format-mounted-foreground = ${colors.primary}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume-prefix = "󰕾  "
+format-volume-prefix-foreground = ${colors.primary}
+format-volume = <label-volume>
+
+label-volume = %percentage%%
+
+label-muted = 󰖁
+label-muted-foreground = ${colors.disabled}
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+label-layout = %layout%
+label-layout-foreground = ${colors.primary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-foreground = ${colors.background}
+label-indicator-background = ${colors.secondary}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "RAM "
+format-prefix-foreground = ${colors.primary}
+label = %percentage_used:2%%
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "CPU "
+format-prefix-foreground = ${colors.primary}
+label = %percentage:2%%
+
+[network-base]
+type = internal/network
+interval = 5
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
+
+[module/wlan]
+inherit = network-base
+interface-type = wireless
+label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
+
+[module/eth]
+inherit = network-base
+interface-type = wired
+label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %Y/%m/%d
+time = %H:%M
+
+label = 󰸗 %date%  󰅐 %time%
+label-foreground = ${colors.primary}
+
+[settings]
+screenchange-reload = true
+pseudo-transparency = false
+
+
+; vim:ft=dosini
