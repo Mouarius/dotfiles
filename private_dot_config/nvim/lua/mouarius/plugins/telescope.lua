@@ -1,7 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.4",
-  lazy = false,
+  cmd = {"Telescope"},
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
@@ -42,6 +42,8 @@ return {
           i = {
             ["î"] = find_files_no_ignore,
             ["Ì"] = find_files_with_hidden,
+            ["<M-i>"] = find_files_no_ignore,
+            ["<M-I>"] = find_files_with_hidden,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-Down>"] = actions.cycle_history_next,
@@ -60,6 +62,7 @@ return {
     telescope.load_extension("harpoon")
     telescope.load_extension("refactoring")
     telescope.load_extension("frecency")
+    telescope.load_extension("noice")
   end,
   keys = {
     {
@@ -80,7 +83,17 @@ return {
       desc = "Find recent files",
     },
     {
-      "<leader>fg",
+      "<leader>fn",
+      "<cmd>Telescope noice<cr>",
+      desc = "Find noice",
+    },
+    {
+      "<leader>ft",
+      "<cmd>Telescope notify<cr>",
+      desc = "Find notifications",
+    },
+    {
+      "<leader>fw",
       function()
         require("telescope.builtin").live_grep()
       end,
@@ -92,6 +105,20 @@ return {
         require("telescope.builtin").buffers()
       end,
       desc = "Find buffers",
+    },
+    {
+      "<leader>fg",
+      function()
+        require("telescope.builtin").git_commits()
+      end,
+      desc = "Find git_commits",
+    },
+    {
+      "<leader>fgb",
+      function()
+        require("telescope.builtin").git_branches()
+      end,
+      desc = "Find git_branches",
     },
     {
       "<leader>fh",
@@ -112,19 +139,31 @@ return {
       function()
         require("telescope.builtin").lsp_document_symbols()
       end,
-      desc = "Goto Symbol",
+      desc = "Find Symbol",
     },
     {
       "<leader>fS",
       function()
         require("telescope.builtin").lsp_dynamic_workspace_symbols()
       end,
-      desc = "Goto Symbol (Workspace)",
+      desc = "Find Symbol (Workspace)",
+    },
+    {
+      "<leader>fd",
+      function()
+        require("telescope.builtin").lsp_definitions()
+      end,
+      desc = "Find LSP Definitions (Workspace)",
     },
     {
       "gr",
       "<cmd>Telescope lsp_references <cr>",
       desc = "LSP: List references",
     },
+      {
+        "gd",
+        "<cmd>Telescope lsp_definitions<CR>",
+        desc = "LSP: find definitions",
+      },
   },
 }
