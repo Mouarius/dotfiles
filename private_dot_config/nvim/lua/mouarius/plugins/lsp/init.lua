@@ -1,19 +1,18 @@
 return {
 	{
+		"williamboman/mason.nvim",
+		lazy = false,
+    config = true
+	},
+	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
 		lazy = true,
-		config = false,
 		init = function()
 			-- Disable automatic setup, we are doing it manually
 			vim.g.lsp_zero_extend_cmp = 0
 			vim.g.lsp_zero_extend_lspconfig = 0
 		end,
-	},
-	{
-		"williamboman/mason.nvim",
-		lazy = false,
-		config = true,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -43,6 +42,19 @@ return {
 			-- lspconfig.volar.setup({
 			--   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
 			-- })
+
+      lspconfig.pyright.setup({
+        settings = {
+          pyright = {
+            disableOrganizeImports = true
+          },
+          python = {
+            analysis = {
+              diagnosticMode = "workspace"
+            }
+          }
+        }
+      })
 
 			lspconfig.tsserver.setup({
 				single_file_support = false,

@@ -1,6 +1,7 @@
 return {
   "michaelb/sniprun",
   branch = "master",
+  lazy = true,
 
   build = "sh install.sh",
   -- do 'sh install.sh 1' if you want to force compile locally

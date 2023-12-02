@@ -22,5 +22,8 @@ return {
     { "<S-Tab>",    "<cmd>BufferLineCyclePrev<CR>", desc = "Go to previous buffer" },
     { "<leader>bl", "<cmd>BufferLineMovePrev<CR>",  desc = "Move buffer tab to right" },
     { "<leader>bh", "<cmd>BufferLineMovePrev<CR>",  desc = "Move buffer tab to left" },
+    { "<leader>bX", "<cmd>BufferLineCloseOthers<CR>",  desc = "Close all other buffers" },
+    { "<leader>bxl", "<cmd>BufferLineCloseRight<CR>",  desc = "Close buffers on the right" },
+    { "<leader>bxh", "<cmd>BufferLineCloseLeft<CR>",  desc = "Close buffers on the left" },
   },
 }
