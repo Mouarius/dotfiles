@@ -4,6 +4,7 @@
     {
       "alignment": "left",
       "type": "prompt",
+      "overflow": "break",
       "segments": [
         {
           "type": "path",
@@ -29,8 +30,7 @@
       ]
     },
     {
-      "type": "prompt",
-      "alignment": "right",
+      "type": "rprompt",
       "segments": [
         {
           "type": "node",
