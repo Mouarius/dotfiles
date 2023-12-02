@@ -5,19 +5,19 @@ return {
   build = ":TSUpdate",
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   keys = {
-    { "<c-space>", desc = "Increment selection" },
+    { "<c-space>", desc = "Increment selection", mode = "x" },
     { "<bs>",      desc = "Decrement selection", mode = "x" },
   },
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter-textobjects",
+      "windwp/nvim-ts-autotag",
     },
   },
   opts = {
     highlight = {
       enable = true,
     },
-    -- enable indentation
     indent = { enable = true },
     -- enable autotagging (w/ nvim-ts-autotag plugin)
     autotag = {
@@ -95,5 +95,5 @@ return {
   config = function(_, opts)
     local treesitter = require("nvim-treesitter.configs")
     treesitter.setup(opts)
-  end
+  end,
 }
