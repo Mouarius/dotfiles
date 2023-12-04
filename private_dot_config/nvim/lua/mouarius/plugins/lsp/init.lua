@@ -29,7 +29,6 @@ return {
       -- This is where all the LSP shenanigans will live
       local lsp_zero = require("lsp-zero")
 
-      vim.lsp.set_log_level("debug")
       lsp_zero.extend_lspconfig()
 
       lsp_zero.on_attach(function(_, bufnr)
@@ -43,12 +42,6 @@ return {
       -- lspconfig.volar.setup({
       --   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
       -- })
-      --
-      -- lspconfig.jedi_language_server.setup({
-      --   on_attach = function(client, bufnr)
-      --     client.server_capabilities.hoverProvider = true
-      --   end
-      -- })
 
       lspconfig.pyright.setup({
         handlers = {
@@ -60,6 +53,26 @@ return {
         --   -- print(vim.inspect(capabilities))
         --   return capabilities
         -- end)(),
+        root_dir = function(fname)
+          local root_files = {
+            "pyproject.toml",
+            "setup.py",
+            "setup.cfg",
+            "requirements.txt",
+            "Pipfile",
+            "pyrightconfig.json",
+            ".git",
+          }
+          local util = require("lspconfig.util")
+          local env_name = vim.fn.getenv("VIRTUAL_ENV")
+          local EXPECTED_VIRTUAL_ENV = "/home/mariusmenault/dev/venv/hw"
+          local is_hw_venv_activated = env_name == EXPECTED_VIRTUAL_ENV
+          local is_in_mysite = string.find(fname, "^/home/mariusmenault/dev/greenday/mysite/") == 1
+          if is_in_mysite and is_hw_venv_activated then
+            return "/home/mariusmenault/dev/greenday/mysite"
+          end
+          return util.root_pattern(unpack(root_files))(fname)
+        end,
         settings = {
           pyright = {
             disableOrganizeImports = true,
@@ -266,4 +279,4 @@ return {
   --     },
   --   },
   -- },
-}
+
