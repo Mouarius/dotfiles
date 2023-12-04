@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+os.setlocale("en_US.UTF-8")
 vim.g.mapleader = " "
 
 vim.g.loaded_netrwPlugin = 1

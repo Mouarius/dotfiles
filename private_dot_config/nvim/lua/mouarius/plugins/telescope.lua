@@ -157,7 +157,7 @@ return {
 			desc = "Find LSP Definitions (Workspace)",
 		},
 		{
-			"<leader>rr",
+			"<leader>fR",
 			function()
 				require("telescope").extensions.refactoring.refactors()
 			end,
