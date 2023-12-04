@@ -19,7 +19,6 @@ return {
     local sources = {
 
       null_ls.builtins.code_actions.eslint,
-      null_ls.builtins.code_actions.ruff,
 
       null_ls.builtins.completion.tags,
       -- null_ls.builtins.diagnostics.mypy.with({
@@ -38,11 +37,9 @@ return {
       null_ls.builtins.diagnostics.djlint.with({
         prefer_local = "venv/hw/bin",
       }),
-      null_ls.builtins.diagnostics.cfn_lint,
 
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.black,
-      null_ls.builtins.formatting.ruff,
     }
     null_ls.setup({
       sources = sources,
