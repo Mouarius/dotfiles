@@ -11,7 +11,6 @@ return {
         c = { fg = colors.subtext1, bg = colors.base },
         z = { fg = colors.yellow, bg = colors.base },
       },
-
       insert = {
         a = { fg = colors.base, bg = colors.green },
         z = { fg = colors.green, bg = colors.base },
@@ -50,13 +49,13 @@ return {
             "diagnostics",
             source = { "nvim" },
             sections = { "error" },
-            diagnostics_color = { error = { bg = colors.red, fg = colors.white } },
+            diagnostics_color = { error = { bg = colors.base, fg = colors.red } },
           },
           {
             "diagnostics",
             source = { "nvim" },
             sections = { "warn" },
-            diagnostics_color = { warn = { bg = colors.orange, fg = colors.white } },
+            diagnostics_color = { warn = { bg = colors.base, fg = colors.yellow } },
           },
         },
         lualine_c = {},
