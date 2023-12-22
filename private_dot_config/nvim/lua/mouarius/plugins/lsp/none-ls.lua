@@ -38,8 +38,7 @@ return {
         prefer_local = "venv/hw/bin",
       }),
 
-      null_ls.builtins.formatting.stylua,
-      null_ls.builtins.formatting.black,
+      -- Formatters are used through conform.nvim
     }
     null_ls.setup({
       sources = sources,

@@ -44,9 +44,9 @@ return {
 			-- })
 
 			lspconfig.pyright.setup({
-				handlers = {
-					["textDocument/publishDiagnostics"] = function() end,
-				},
+				-- handlers = {
+				-- 	["textDocument/publishDiagnostics"] = function() end,
+				-- },
 				-- capabilities = (function()
 				--   local capabilities = vim.lsp.protocol.make_client_capabilities()
 				--   capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 1,2 }
@@ -67,6 +67,7 @@ return {
 					local env_name = vim.fn.getenv("VIRTUAL_ENV")
 					local EXPECTED_VIRTUAL_ENV = "/home/mariusmenault/dev/venv/hw"
 					local is_hw_venv_activated = env_name == EXPECTED_VIRTUAL_ENV
+					-- generalize this method
 					local is_in_mysite = string.find(fname, "^/home/mariusmenault/dev/greenday/mysite/") == 1
 					if is_in_mysite and is_hw_venv_activated then
 						return "/home/mariusmenault/dev/greenday/mysite"
@@ -79,7 +80,7 @@ return {
 					},
 					python = {
 						analysis = {
-							diagnosticMode = "workspace",
+							diagnosticMode = "openFilesOnly",
 							autoImportCompletions = true,
 							autoSearchPaths = true,
 							-- diagnosticSeverityOverrides = {
@@ -88,6 +89,24 @@ return {
 						},
 					},
 				},
+			})
+			-- lspconfig.pylsp.setup({
+			-- 	on_attach = function(client, _)
+			-- 		client.server_capabilities.hoverProvider = false
+			-- 	end,
+			-- 	settings = {
+			-- 		pylsp = {
+			-- 			plugins = {
+			-- 				pycodestyle = {
+			-- 					ignore = { "E501" },
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- })
+
+			lspconfig.html.setup({
+				filetypes = { "mjml", "html", "htmldjango" },
 			})
 
 			lspconfig.ruff_lsp.setup({
@@ -144,13 +163,13 @@ return {
 			})
 		end,
 		keys = {
-			{
-				"<leader>cf",
-				function()
-					vim.lsp.buf.format()
-				end,
-				desc = "LSP: Format",
-			},
+			-- {
+			-- 	"<leader>cf",
+			-- 	function()
+			-- 		vim.lsp.buf.format()
+			-- 	end,
+			-- 	desc = "LSP: Format",
+			-- },
 			{
 				"<leader>cr",
 				function()
