@@ -274,8 +274,8 @@ bindsym $mod+d exec rofi -show drun
   bindsym XF86AudioPause exec playerctl pause
   bindsym XF86AudioNext exec playerctl next
   bindsym XF86AudioPrev exec playerctl previous
-
-  exec --no-startup-id localectl set-x11-keymap --no-convert fr pc105 nodeadkeys
+  bindsym $mod+Ctrl+w exec setxkbmap -variant azerty
+  bindsym $mod+Ctrl+Shift+w exec setxkbmap -variant nodeadkeys
 
 # Touchpad
   # natural scrolling
