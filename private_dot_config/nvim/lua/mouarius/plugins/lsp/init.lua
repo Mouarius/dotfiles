@@ -25,7 +25,9 @@ return {
 			{ "folke/noice.nvim" },
 		},
 		config = function()
-			require("neodev").setup({})
+			require("neodev").setup({
+				library = { plugins = { "nvim-dap-ui" }, types = true },
+			})
 			-- This is where all the LSP shenanigans will live
 			local lsp_zero = require("lsp-zero")
 
