@@ -13,7 +13,6 @@ return {
     end
     return {
       { "<leader>gs", "<cmd>Git<CR>",   desc = "Git status" },
-      { "<leader>a",  toggle_git_blame, desc = "Git blame" }
     }
   end
 }
