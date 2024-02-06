@@ -17,7 +17,7 @@ return {
         ["<leader>c"] = { name = "+code" },
         ["<leader>f"] = { name = "+find" },
         ["<leader>g"] = { name = "+git" },
-        ["<leader>h"] = { name = "+help" },
+        ["<leader>h"] = { name = "+hunk" },
         ["<leader>n"] = { name = "+noice" },
         ["<leader>o"] = { name = "+open" },
         ["<leader>q"] = { name = "+quit/session" },

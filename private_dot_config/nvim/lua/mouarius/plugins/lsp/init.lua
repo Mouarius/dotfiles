@@ -15,6 +15,17 @@ return {
 		end,
 	},
 	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		opts = {
+			ensure_installed = {
+				"stylua",
+				"ruff",
+				"mypy",
+				"flake8",
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		cmd = { "LspInfo", "LspInstall", "LspStart" },
 		event = { "BufReadPre", "BufNewFile" },
@@ -28,33 +39,17 @@ return {
 			require("neodev").setup({
 				library = { plugins = { "nvim-dap-ui" }, types = true },
 			})
-			-- This is where all the LSP shenanigans will live
 			local lsp_zero = require("lsp-zero")
 
 			lsp_zero.extend_lspconfig()
 
 			lsp_zero.on_attach(function(_, bufnr)
-				-- see :help lsp-zero-keybindings
-				-- to learn the available actions
 				lsp_zero.default_keymaps({ buffer = bufnr })
 			end)
 
 			local lspconfig = require("lspconfig")
 
-			lspconfig.volar.setup({
-				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
-			})
-
 			lspconfig.pyright.setup({
-				-- handlers = {
-				-- 	["textDocument/publishDiagnostics"] = function() end,
-				-- },
-				-- capabilities = (function()
-				--   local capabilities = vim.lsp.protocol.make_client_capabilities()
-				--   capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 1,2 }
-				--   -- print(vim.inspect(capabilities))
-				--   return capabilities
-				-- end)(),
 				root_dir = function(fname)
 					local root_files = {
 						"pyproject.toml",
@@ -84,51 +79,60 @@ return {
 						analysis = {
 							diagnosticMode = "openFilesOnly",
 							autoImportCompletions = true,
-							autoSearchPaths = true,
-							-- diagnosticSeverityOverrides = {
-							--   reportUndefinedVariable = "error"
-							-- }
+							-- typeCheckingMode = "off",
 						},
 					},
 				},
 			})
 
-			-- local venv_path = os.getenv("VIRTUAL_ENV")
-			-- local py_path = nil
-			-- -- decide which python executable to use for mypy
-			-- if venv_path ~= nil then
-			-- 	py_path = venv_path .. "/bin/python3"
-			-- else
-			-- 	py_path = vim.g.python3_host_prog
-			-- end -- })
-			--
+			require("lspconfig").ruff_lsp.setup({
+				on_attach = function(client, bufnr)
+					-- Disable hover in favor of Pyright
+					client.server_capabilities.hoverProvider = false
+				end,
+			})
+
 			-- lspconfig.pylsp.setup({
-			-- 	-- on_attach = function(client, _)
-			-- 	-- 	-- client.server_capabilities.hoverProvider = false
-			-- 	-- end,
+			-- 	on_attach = function(client, _)
+			-- 		client.server_capabilities.hoverProvider = false
+			-- 	end,
 			-- 	settings = {
 			-- 		pylsp = {
+			-- 			configurationSources = { "flake8" },
 			-- 			plugins = {
 			-- 				-- formatter options
 			-- 				black = { enabled = true },
 			-- 				autopep8 = { enabled = false },
 			-- 				yapf = { enabled = false },
 			-- 				-- linter options
-			-- 				pylint = { enabled = true, executable = "pylint" },
-			-- 				ruff = { enabled = false },
+			-- 				pylint = { enabled = false },
+			-- 				-- executable = "pylint" },
+			-- 				ruff = { enabled = true,
+			--              config = "/home/mariusmenault/dev/greenday/pyproject.toml",
+			--              ignore = "E501" },
+			-- 				mccabe = { enabled = false },
 			-- 				pyflakes = { enabled = false },
+			-- 				flake8 = {
+			-- 					enabled = true,
+			-- 					maxLineLength = 88,
+			-- 				},
 			-- 				pycodestyle = { enabled = false },
 			-- 				-- type checker
 			-- 				pylsp_mypy = {
 			-- 					enabled = true,
-			-- 					overrides = { "--python-executable", py_path, true },
 			-- 					report_progress = true,
+			-- 					strict = false,
+			-- 					-- overrides = { "--python-executable", py_path, true },
 			-- 					live_mode = false,
+			-- 					dmypy = false,
 			-- 				},
+			-- 				rope_autoimport = { enabled = false },
 			-- 				-- auto-completion options
-			-- 				jedi_completion = { fuzzy = true },
+			-- 				jedi_completion = { enabled = false },
+			-- 				jedi_hover = { enabled = true },
+			-- 				jedi_symbols = { enabled = true },
 			-- 				-- import sorting
-			-- 				isort = { enabled = true },
+			-- 				isort = { enabled = false },
 			-- 			},
 			-- 		},
 			-- 	},
@@ -138,11 +142,14 @@ return {
 				filetypes = { "mjml", "html", "htmldjango" },
 			})
 
-			lspconfig.ruff_lsp.setup({
-				on_attach = function(client, _)
-					client.server_capabilities.hoverProvider = false
-				end,
-			})
+			-- lspconfig.ruff_lsp.setup({
+			-- 	on_attach = function(client, _)
+			-- 		client.server_capabilities.hoverProvider = false
+			-- 	end,
+			-- 	settings = {
+			-- 		interpreter = py_path,
+			-- 	},
+			-- })
 
 			lspconfig.tsserver.setup({
 				single_file_support = false,
@@ -150,13 +157,13 @@ return {
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					-- "pyright",
 					"lua_ls",
+					"pyright",
+					"ruff_lsp",
 				},
 				handlers = {
 					lsp_zero.default_setup,
 					lua_ls = function()
-						-- (Optional) Configure lua language server for neovim
 						local lua_opts = lsp_zero.nvim_lua_ls()
 						require("lspconfig").lua_ls.setup(lua_opts)
 					end,
@@ -192,13 +199,6 @@ return {
 			})
 		end,
 		keys = {
-			-- {
-			-- 	"<leader>cf",
-			-- 	function()
-			-- 		vim.lsp.buf.format()
-			-- 	end,
-			-- 	desc = "LSP: Format",
-			-- },
 			{
 				"<leader>cr",
 				function()

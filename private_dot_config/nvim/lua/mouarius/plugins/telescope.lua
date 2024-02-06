@@ -9,9 +9,6 @@ return {
 			build = "make",
 			enabled = vim.fn.executable("make") == 1,
 		},
-		{
-			"nvim-telescope/telescope-frecency.nvim",
-		},
 		{ "ThePrimeagen/refactoring.nvim" },
 	},
 	opts = function()
@@ -62,7 +59,6 @@ return {
 		telescope.load_extension("fzf")
 		telescope.load_extension("harpoon")
 		telescope.load_extension("refactoring")
-		telescope.load_extension("frecency")
 		telescope.load_extension("noice")
 	end,
 	keys = {
@@ -72,11 +68,6 @@ return {
 				require("telescope.builtin").find_files()
 			end,
 			desc = "Find files",
-		},
-		{
-			"<leader>fr",
-			"<cmd>Telescope frecency<cr>",
-			desc = "Find files by frecency",
 		},
 		{
 			"<leader>fo",
