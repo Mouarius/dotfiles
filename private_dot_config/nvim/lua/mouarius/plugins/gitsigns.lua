@@ -14,9 +14,9 @@ return {
         end
 
         -- Navigation
-        map("n", "]c", function()
+        map("n", "^h", function()
           if vim.wo.diff then
-            return "]c"
+            return "^h"
           end
           vim.schedule(function()
             gs.next_hunk()
@@ -24,9 +24,9 @@ return {
           return "<Ignore>"
         end, { expr = true })
 
-        map("n", "[c", function()
+        map("n", "¨h", function()
           if vim.wo.diff then
-            return "[c"
+            return "¨h"
           end
           vim.schedule(function()
             gs.prev_hunk()
@@ -50,8 +50,8 @@ return {
         map("n", "<leader>hb", function()
           gs.blame_line({ full = true })
         end, { desc = "Git: Blame line" })
-        map("n", "<leader>A", gs.toggle_current_line_blame)
-        map("n", "<leader>hd", gs.diffthis)
+        map("n", "<leader>A", gs.toggle_current_line_blame, {desc = "Git: Toggle current line blame"})
+        map("n", "<leader>hd", gs.diffthis, { desc = "Git: diff this"})
         map("n", "<leader>hD", function()
           gs.diffthis("~")
         end)

@@ -11,10 +11,14 @@ return {
 			require("dapui").setup()
 
 			require("dap-python").setup("/home/mariusmenault/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
+
 			table.insert(require("dap").configurations.python, {
 				type = "python",
 				request = "attach",
-        name = "Django",
+				name = "Django HW",
+				program = vim.fn.getcwd() .. "/manage.py",
+				pythonPath = "/home/mariusmenault/dev/venv/hw/bin/python",
+				args = { "runserver", "--noreload" },
 				connect = { host = "127.0.0.1", port = 5738 },
 				-- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
 			})
