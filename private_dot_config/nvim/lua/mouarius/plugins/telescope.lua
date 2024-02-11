@@ -36,6 +36,9 @@ return {
 						mirror = false,
 					},
 				},
+				path_display = {
+          truncate = 3,
+				},
 				mappings = {
 					i = {
 						["î"] = find_files_no_ignore,
@@ -157,7 +160,12 @@ return {
 		},
 		{
 			"gr",
-			"<cmd>Telescope lsp_references <cr>",
+			function ()
+        require("telescope.builtin").lsp_references({
+          show_line=false,
+          trim_text=true
+        })
+			end,
 			desc = "LSP: List references",
 		},
 		{
