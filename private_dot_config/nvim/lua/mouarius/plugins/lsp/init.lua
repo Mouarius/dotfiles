@@ -51,6 +51,7 @@ return {
 
 			lspconfig.pyright.setup({
 				root_dir = function(fname)
+					-- Change the default root_dir to fix auto-imports for django
 					local root_files = {
 						"pyproject.toml",
 						"setup.py",
@@ -86,8 +87,7 @@ return {
 			})
 
 			require("lspconfig").ruff_lsp.setup({
-				on_attach = function(client, bufnr)
-					-- Disable hover in favor of Pyright
+				on_attach = function(client, _bufnr)
 					client.server_capabilities.hoverProvider = false
 				end,
 			})
@@ -142,15 +142,6 @@ return {
 				filetypes = { "mjml", "html", "htmldjango" },
 			})
 
-			-- lspconfig.ruff_lsp.setup({
-			-- 	on_attach = function(client, _)
-			-- 		client.server_capabilities.hoverProvider = false
-			-- 	end,
-			-- 	settings = {
-			-- 		interpreter = py_path,
-			-- 	},
-			-- })
-
 			lspconfig.tsserver.setup({
 				single_file_support = false,
 			})
@@ -160,6 +151,7 @@ return {
 					"lua_ls",
 					"pyright",
 					"ruff_lsp",
+					"tsserver",
 				},
 				handlers = {
 					lsp_zero.default_setup,
@@ -169,6 +161,7 @@ return {
 					end,
 				},
 			})
+
 			require("noice").setup({
 				lsp = {
 					override = {
@@ -195,6 +188,7 @@ return {
 					command_palette = true,
 					long_message_to_split = true,
 					inc_rename = true,
+					lsp_doc_border = true, -- add a border to hover docs and signature help
 				},
 			})
 		end,
