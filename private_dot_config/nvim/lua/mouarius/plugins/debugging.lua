@@ -9,19 +9,21 @@ return {
 		},
 		config = function(_, opts)
 			require("dapui").setup()
+			local utils = require("mouarius.core.utils")
 
-			require("dap-python").setup("/home/mariusmenault/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
+			local debugpy_env = "/home/mariusmenault/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+			local django_dir = utils.find_django_project_directory(vim.fn.getcwd())
 
-			table.insert(require("dap").configurations.python, {
-				type = "python",
-				request = "attach",
-				name = "Django HW",
-				program = vim.fn.getcwd() .. "/manage.py",
-				pythonPath = "/home/mariusmenault/dev/venv/hw/bin/python",
-				args = { "runserver", "--noreload" },
-				connect = { host = "127.0.0.1", port = 5738 },
-				-- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
-			})
+			require("dap-python").setup(debugpy_env)
+			if django_dir then
+				table.insert(require("dap").configurations.python, {
+					type = "python",
+					request = "launch",
+					name = "Django HW (launch)",
+					program = django_dir .. "/manage.py",
+					args = { "runserver", "--noreload" },
+				})
+			end
 		end,
 		keys = {
 			{
