@@ -24,4 +24,30 @@ M.get_python_executable = function()
 	return vim.g.python3_host_prog
 end
 
+-- Function to check if a directory contains a Django project
+M.contains_django_project = function(directory)
+	-- Check if manage.py file exists in the directory
+	local file = vim.fn.filereadable(directory .. "/manage.py")
+	return file == 1
+end
+
+-- Function to recursively search for Django project directory
+M.find_django_project_directory = function(root_directory)
+	local entries = vim.fn.readdir(root_directory)
+	for _, entry in ipairs(entries) do
+		if entry ~= "." and entry ~= ".." then
+			local full_path = root_directory .. "/" .. entry
+			if M.contains_django_project(full_path) then
+				return full_path
+			else
+				local found_directory = M.find_django_project_directory(full_path)
+				if found_directory then
+					return found_directory
+				end
+			end
+		end
+	end
+	return nil
+end
+
 return M
