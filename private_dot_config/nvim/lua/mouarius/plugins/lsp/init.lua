@@ -53,6 +53,7 @@ return {
 				root_dir = function(fname)
 					-- Change the default root_dir to fix auto-imports for django
 					local root_files = {
+            "manage.py",
 						"pyproject.toml",
 						"setup.py",
 						"setup.cfg",
@@ -80,7 +81,7 @@ return {
 						analysis = {
 							diagnosticMode = "openFilesOnly",
 							autoImportCompletions = true,
-							-- typeCheckingMode = "off",
+							typeCheckingMode = "off",
 						},
 					},
 				},
@@ -92,51 +93,51 @@ return {
 				end,
 			})
 
-			-- lspconfig.pylsp.setup({
-			-- 	on_attach = function(client, _)
-			-- 		client.server_capabilities.hoverProvider = false
-			-- 	end,
-			-- 	settings = {
-			-- 		pylsp = {
-			-- 			configurationSources = { "flake8" },
-			-- 			plugins = {
-			-- 				-- formatter options
-			-- 				black = { enabled = true },
-			-- 				autopep8 = { enabled = false },
-			-- 				yapf = { enabled = false },
-			-- 				-- linter options
-			-- 				pylint = { enabled = false },
-			-- 				-- executable = "pylint" },
-			-- 				ruff = { enabled = true,
-			--              config = "/home/mariusmenault/dev/greenday/pyproject.toml",
-			--              ignore = "E501" },
-			-- 				mccabe = { enabled = false },
-			-- 				pyflakes = { enabled = false },
-			-- 				flake8 = {
-			-- 					enabled = true,
-			-- 					maxLineLength = 88,
-			-- 				},
-			-- 				pycodestyle = { enabled = false },
-			-- 				-- type checker
-			-- 				pylsp_mypy = {
-			-- 					enabled = true,
-			-- 					report_progress = true,
-			-- 					strict = false,
-			-- 					-- overrides = { "--python-executable", py_path, true },
-			-- 					live_mode = false,
-			-- 					dmypy = false,
-			-- 				},
-			-- 				rope_autoimport = { enabled = false },
-			-- 				-- auto-completion options
-			-- 				jedi_completion = { enabled = false },
-			-- 				jedi_hover = { enabled = true },
-			-- 				jedi_symbols = { enabled = true },
-			-- 				-- import sorting
-			-- 				isort = { enabled = false },
-			-- 			},
-			-- 		},
-			-- 	},
-			-- })
+			lspconfig.pylsp.setup({
+				on_attach = function(client, _)
+					client.server_capabilities.hoverProvider = false
+				end,
+				settings = {
+					pylsp = {
+						configurationSources = { "flake8" },
+						plugins = {
+							-- formatter options
+							black = { enabled = false },
+							autopep8 = { enabled = false },
+							yapf = { enabled = false },
+							-- linter options
+							pylint = { enabled = false },
+							-- executable = "pylint" },
+							ruff = { enabled = false,
+			             config = "/home/mariusmenault/dev/greenday/pyproject.toml",
+			             ignore = "E501" },
+							mccabe = { enabled = false },
+							pyflakes = { enabled = false },
+							flake8 = {
+								enabled = false,
+								maxLineLength = 88,
+							},
+							pycodestyle = { enabled = false },
+							-- type checker
+							pylsp_mypy = {
+								enabled = true,
+								report_progress = true,
+								strict = true,
+								-- overrides = { "--python-executable", py_path, true },
+								live_mode = true,
+								dmypy = false,
+							},
+							rope_autoimport = { enabled = false },
+							-- auto-completion options
+							jedi_completion = { enabled = false },
+							jedi_hover = { enabled = false },
+							jedi_symbols = { enabled = true },
+							-- import sorting
+							isort = { enabled = false },
+						},
+					},
+				},
+			})
 
 			lspconfig.html.setup({
 				filetypes = { "mjml", "html", "htmldjango" },
