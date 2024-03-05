@@ -18,6 +18,9 @@ alias vi nvim
 alias .. "cd .."
 alias .... "cd ../.."
 
+#tmux
+alias thw "tmux new -s hw"
+
 # config, see : https://www.atlassian.com/git/tutorials/dotfiles
 alias config "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 

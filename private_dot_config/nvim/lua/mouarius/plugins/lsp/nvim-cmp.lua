@@ -34,11 +34,11 @@ return {
         ["<C-n>"] = cmp_action.luasnip_jump_forward(),
         ["<C-p>"] = cmp_action.luasnip_jump_backward(),
         ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<C-y>"] = cmp.mapping.confirm({ select = false }),
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp",  priority = 10 },
-        { name = "luasnip" },
+        { name = "luasnip", priority=1 },
         { name = "path" },
         { name = "buffer" },
       }),
