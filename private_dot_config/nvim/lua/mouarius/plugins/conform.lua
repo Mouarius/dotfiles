@@ -7,8 +7,6 @@ return {
 			lua = { "stylua" },
 			-- Conform will run multiple formatters sequentially
 			python = { "black", "ruff_format" },
-			-- Use a sub-list to run only the first available formatter
-			javascript = { { "prettierd", "prettier" } },
 			htmldjango = { "html" },
 		},
 	},

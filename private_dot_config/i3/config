@@ -322,9 +322,9 @@ bindsym $mod+d exec rofi -show drun
   client.unfocused         #16161d #16161d #c0caf5 #16161d   $clr-bg-dark
 
 # Gaps
-  gaps inner 12
-  gaps outer 1
-  smart_gaps off
+  gaps inner 0
+  gaps outer 0
+  smart_gaps on
 
 # CUSTOM CONFIG
 for_window [class="jetbrains-pycharm"] move container to workspace $ws2
