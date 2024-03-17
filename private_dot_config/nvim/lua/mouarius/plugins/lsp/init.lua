@@ -53,7 +53,7 @@ return {
 				root_dir = function(fname)
 					-- Change the default root_dir to fix auto-imports for django
 					local root_files = {
-            "manage.py",
+						"manage.py",
 						"pyproject.toml",
 						"setup.py",
 						"setup.cfg",
@@ -108,9 +108,11 @@ return {
 							-- linter options
 							pylint = { enabled = false },
 							-- executable = "pylint" },
-							ruff = { enabled = false,
-			             config = "/home/mariusmenault/dev/greenday/pyproject.toml",
-			             ignore = "E501" },
+							ruff = {
+								enabled = false,
+								config = "/home/mariusmenault/dev/greenday/pyproject.toml",
+								ignore = "E501",
+							},
 							mccabe = { enabled = false },
 							pyflakes = { enabled = false },
 							flake8 = {
@@ -143,8 +145,46 @@ return {
 				filetypes = { "mjml", "html", "htmldjango" },
 			})
 
-			lspconfig.tsserver.setup({
-				single_file_support = false,
+			require("lspconfig").tsserver.setup({
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+							languages = { "javascript", "typescript", "vue" },
+						},
+					},
+				},
+				filetypes = {
+					"javascript",
+					"typescript",
+					"vue",
+				},
+			})
+      -- from lspconfig-all
+			local util = require("lspconfig.util")
+			local function get_typescript_server_path(root_dir)
+				local global_ts = "/home/[yourusernamehere]/.npm/lib/node_modules/typescript/lib"
+				-- Alternative location if installed as root:
+				-- local global_ts = '/usr/local/lib/node_modules/typescript/lib'
+				local found_ts = ""
+				local function check_dir(path)
+					found_ts = util.path.join(path, "node_modules", "typescript", "lib")
+					if util.path.exists(found_ts) then
+						return path
+					end
+				end
+				if util.search_ancestors(root_dir, check_dir) then
+					return found_ts
+				else
+					return global_ts
+				end
+			end
+
+			require("lspconfig").volar.setup({
+				on_new_config = function(new_config, new_root_dir)
+					new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
+				end,
 			})
 
 			require("mason-lspconfig").setup({
@@ -152,6 +192,7 @@ return {
 					"lua_ls",
 					"pyright",
 					"ruff_lsp",
+					"volar",
 					"tsserver",
 				},
 				handlers = {

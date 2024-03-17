@@ -8,6 +8,7 @@ return {
 			-- Conform will run multiple formatters sequentially
 			python = { "black", "ruff_format" },
 			htmldjango = { "html" },
+			vue = { "prettier" },
 		},
 	},
 	keys = {
