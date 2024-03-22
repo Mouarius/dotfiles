@@ -79,6 +79,7 @@ return {
 					},
 					python = {
 						analysis = {
+							ignore = { "*" },
 							diagnosticMode = "openFilesOnly",
 							autoImportCompletions = true,
 							typeCheckingMode = "off",
@@ -93,53 +94,53 @@ return {
 				end,
 			})
 
-			lspconfig.pylsp.setup({
-				on_attach = function(client, _)
-					client.server_capabilities.hoverProvider = false
-				end,
-				settings = {
-					pylsp = {
-						configurationSources = { "flake8" },
-						plugins = {
-							-- formatter options
-							black = { enabled = false },
-							autopep8 = { enabled = false },
-							yapf = { enabled = false },
-							-- linter options
-							pylint = { enabled = false },
-							-- executable = "pylint" },
-							ruff = {
-								enabled = false,
-								config = "/home/mariusmenault/dev/greenday/pyproject.toml",
-								ignore = "E501",
-							},
-							mccabe = { enabled = false },
-							pyflakes = { enabled = false },
-							flake8 = {
-								enabled = false,
-								maxLineLength = 88,
-							},
-							pycodestyle = { enabled = false },
-							-- type checker
-							pylsp_mypy = {
-								enabled = true,
-								report_progress = true,
-								strict = true,
-								-- overrides = { "--python-executable", py_path, true },
-								live_mode = true,
-								dmypy = false,
-							},
-							rope_autoimport = { enabled = false },
-							-- auto-completion options
-							jedi_completion = { enabled = false },
-							jedi_hover = { enabled = false },
-							jedi_symbols = { enabled = true },
-							-- import sorting
-							isort = { enabled = false },
-						},
-					},
-				},
-			})
+			-- lspconfig.pylsp.setup({
+			-- 	on_attach = function(client, _)
+			-- 		client.server_capabilities.hoverProvider = false
+			-- 	end,
+			-- 	settings = {
+			-- 		pylsp = {
+			-- 			configurationSources = { "flake8" },
+			-- 			plugins = {
+			-- 				-- formatter options
+			-- 				black = { enabled = false },
+			-- 				autopep8 = { enabled = false },
+			-- 				yapf = { enabled = false },
+			-- 				-- linter options
+			-- 				pylint = { enabled = false },
+			-- 				-- executable = "pylint" },
+			-- 				ruff = {
+			-- 					enabled = false,
+			-- 					config = "/home/mariusmenault/dev/greenday/pyproject.toml",
+			-- 					ignore = "E501",
+			-- 				},
+			-- 				mccabe = { enabled = false },
+			-- 				pyflakes = { enabled = false },
+			-- 				flake8 = {
+			-- 					enabled = false,
+			-- 					maxLineLength = 88,
+			-- 				},
+			-- 				pycodestyle = { enabled = false },
+			-- 				-- type checker
+			-- 				pylsp_mypy = {
+			-- 					enabled = true,
+			-- 					report_progress = true,
+			-- 					strict = true,
+			-- 					-- overrides = { "--python-executable", py_path, true },
+			-- 					live_mode = true,
+			-- 					dmypy = false,
+			-- 				},
+			-- 				rope_autoimport = { enabled = false },
+			-- 				-- auto-completion options
+			-- 				jedi_completion = { enabled = false },
+			-- 				jedi_hover = { enabled = false },
+			-- 				jedi_symbols = { enabled = true },
+			-- 				-- import sorting
+			-- 				isort = { enabled = false },
+			-- 			},
+			-- 		},
+			-- 	},
+			-- })
 
 			lspconfig.html.setup({
 				filetypes = { "mjml", "html", "htmldjango" },
@@ -161,12 +162,10 @@ return {
 					"vue",
 				},
 			})
-      -- from lspconfig-all
+			-- from lspconfig-all
 			local util = require("lspconfig.util")
 			local function get_typescript_server_path(root_dir)
 				local global_ts = "/home/[yourusernamehere]/.npm/lib/node_modules/typescript/lib"
-				-- Alternative location if installed as root:
-				-- local global_ts = '/usr/local/lib/node_modules/typescript/lib'
 				local found_ts = ""
 				local function check_dir(path)
 					found_ts = util.path.join(path, "node_modules", "typescript", "lib")

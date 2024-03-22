@@ -6,7 +6,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			-- Conform will run multiple formatters sequentially
-			python = { "black", "ruff_format" },
+			python = { "ruff_fix", "ruff_format" },
 			htmldjango = { "html" },
 			vue = { "prettier" },
 		},
