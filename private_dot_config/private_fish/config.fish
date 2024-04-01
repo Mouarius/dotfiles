@@ -19,7 +19,7 @@ alias .. "cd .."
 alias .... "cd ../.."
 
 #tmux
-alias thw "tmux new -s hw"
+alias thw "tmux new -s greenday"
 
 # config, see : https://www.atlassian.com/git/tutorials/dotfiles
 alias config "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
@@ -38,6 +38,7 @@ alias gk "g checkout"
 alias gkb "g checkout -b"
 alias glog "g log --graph --oneline --decorate"
 alias gm "g merge"
+alias lg "lazygit"
 
 # django
 alias pm "python manage.py"

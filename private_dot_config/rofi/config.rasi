@@ -1,5 +1,5 @@
 configuration {
-/*	modi: "window,run,ssh";*/
+  	modi: "window,run,ssh";
 	  font: "MesloLGS NerdFont 11";
 /*	location: 0;*/
 /*	yoffset: 0;*/
