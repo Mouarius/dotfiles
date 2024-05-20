@@ -115,8 +115,8 @@ bindsym $mod+a focus parent
 set $ws1 "1: misc"
 set $ws2 "2: code"
 set $ws3 "3: terminal"
-set $ws4 "4: firefox_1"
-set $ws5 "5: firefox_2"
+set $ws4 "4: firefox"
+set $ws5 "5: chrome"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8: slack"
@@ -148,7 +148,7 @@ bindsym $mod+Shift+ccedilla move container to workspace  $ws9
 bindsym $mod+Shift+agrave move container to workspace  $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -231,8 +231,11 @@ set $clr-red1               #db4b4b
   exec_always picom -b
 
   # Keymap
+
   exec_always --no-startup-id xmodmap -e "keycode 66 = Control_L NoSymbol Control_L"
 
+# QUICK LAUNCH APP
+bindsym $mod+shift+c exec flameshot gui
 # SCREEN LOCK
 bindsym $mod+shift+x exec betterlockscreen -l dim
 
@@ -257,6 +260,7 @@ bindsym $mod+Ctrl+Right move workspace to output right
 
 
 # WORKSPACES
+assign [class="Chrome"] $ws5
 assign [class="Slack"] $ws8
 
 # SEARCH (Rofi)

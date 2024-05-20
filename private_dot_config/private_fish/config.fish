@@ -19,7 +19,7 @@ alias .. "cd .."
 alias .... "cd ../.."
 
 #tmux
-alias thw "tmux new -s greenday"
+alias thw "~/dev/script/tmux_greenday.sh"
 
 # config, see : https://www.atlassian.com/git/tutorials/dotfiles
 alias config "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
