@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
+config.default_prog = {'/opt/homebrew/bin/fish'}
 config.font_size = 13.0
 config.front_end = "WebGpu"
 config.font = wezterm.font "JetBrains Mono"
