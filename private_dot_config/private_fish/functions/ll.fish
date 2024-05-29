@@ -1,3 +1,3 @@
 function ll
-	exa -g -l --icons $argv
+	eza -g -l --icons $argv
 end
