@@ -39,6 +39,7 @@ alias gkb "g checkout -b"
 alias glog "g log --graph --oneline --decorate"
 alias gm "g merge"
 alias lg "lazygit"
+alias sveb "source /Users/mariusmenault/.ebcli-virtual-env/bin/activate.fish"
 
 # django
 alias pm "python manage.py"
