@@ -2,10 +2,11 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config.default_prog = {'/opt/homebrew/bin/fish'}
+config.default_prog = { "/opt/homebrew/bin/fish" }
 config.font_size = 13.0
+config.bold_brightens_ansi_colors = true
 config.front_end = "WebGpu"
-config.font = wezterm.font "JetBrains Mono"
+config.font = wezterm.font("JetBrains Mono")
 config.color_scheme = "Catppuccin Mocha"
 -- WEZTERM $TERM information
 -- see : https://wezfurlong.org/wezterm/config/lua/config/term.html?h=term
@@ -22,7 +23,7 @@ config.use_fancy_tab_bar = false
 config.window_padding = {
 	left = 5,
 	right = 5,
-	top = 5,
+	top = 10,
 	bottom = 5,
 }
 
