@@ -17,6 +17,7 @@ alias py python3
 alias vi nvim
 alias .. "cd .."
 alias .... "cd ../.."
+alias z zoxide
 
 #tmux
 alias thw "~/dev/script/tmux_greenday.sh"
@@ -48,9 +49,15 @@ alias pm "python manage.py"
 alias pcr "pre-commit run"
 
 
+
 command -qv nvim && alias vim nvim
 set -gx EDITOR nvim
 
 # test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-zoxide init fish | source
+if command -v ngrok &>/dev/null;
+    eval "$(ngrok completion)"
+end
 
+fzf --fish | source
+
+zoxide init fish | source
