@@ -47,6 +47,9 @@ alias pm "python manage.py"
 # pre-commit
 alias pcr "pre-commit run"
 
+# npm build
+alias build "npm run build:production"
+
 
 command -qv nvim && alias vim nvim
 set -gx EDITOR nvim
