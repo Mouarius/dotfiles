@@ -8,16 +8,17 @@ config.bold_brightens_ansi_colors = true
 config.front_end = "WebGpu"
 config.font = wezterm.font("JetBrains Mono")
 config.color_scheme = "Catppuccin Mocha"
-config.window_background_opacity = 1
-config.text_background_opacity = 1
--- config.macos_window_background_blur = 10
+config.window_background_opacity = 0.91
+
+config.macos_window_background_blur = 10
 -- WEZTERM $TERM information
 -- see : https://wezfurlong.org/wezterm/config/lua/config/term.html?h=term
 -- set tempfile $(mktemp) \
 --         && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
 --         && tic -x -o ~/.terminfo $tempfile \
 --         && rm $tempfile
-config.term = "wezterm"
+-- config.term = "wezterm"
+config.term = "xterm-256color"
 
 config.window_decorations = "RESIZE"
 
