@@ -8,7 +8,7 @@ config.bold_brightens_ansi_colors = true
 config.front_end = "WebGpu"
 config.font = wezterm.font("JetBrains Mono")
 config.color_scheme = "Catppuccin Mocha"
-config.window_background_opacity = 0.91
+config.window_background_opacity = 0.88
 
 config.macos_window_background_blur = 10
 -- WEZTERM $TERM information

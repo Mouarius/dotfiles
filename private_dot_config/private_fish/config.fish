@@ -62,5 +62,5 @@ if command -v ngrok &>/dev/null;
 end
 
 fzf --fish | source
-
 zoxide init fish | source
+uv generate-shell-completion fish | source
