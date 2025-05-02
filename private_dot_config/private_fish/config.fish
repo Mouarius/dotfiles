@@ -41,6 +41,10 @@ alias glog "g log --graph --oneline --decorate"
 alias gm "g merge"
 alias lg "lazygit"
 
+# firebolt
+alias firesvg='cd; cd ~/dev/greenday/fronts/lib/firebolt/tools'
+alias firesvg_mini='firesvg; node firesvg.cjs --inputdir "../../../../../new_firebolt_svg/mini" --category "mini" --monoIcons'
+
 # AWS
 alias sveb "source /Users/mariusmenault/.ebcli-virtual-env/bin/activate.fish"
 alias ebweb "cd ~/dev/eb/France-Staging-web/ && eb ssh --profile=prod"

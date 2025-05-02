@@ -3,14 +3,14 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.default_prog = { "/opt/homebrew/bin/fish" }
-config.font_size = 13.0
+config.font_size = 14
 config.bold_brightens_ansi_colors = true
 config.front_end = "WebGpu"
 config.font = wezterm.font("JetBrains Mono")
 config.color_scheme = "Catppuccin Mocha"
-config.window_background_opacity = 0.88
+config.window_background_opacity = 0.92
 
-config.macos_window_background_blur = 10
+config.macos_window_background_blur = 80
 -- WEZTERM $TERM information
 -- see : https://wezfurlong.org/wezterm/config/lua/config/term.html?h=term
 -- set tempfile $(mktemp) \
@@ -34,9 +34,16 @@ config.window_padding = {
 }
 
 config.native_macos_fullscreen_mode = true
+-- config.disable_default_key_bindings = true
 
 -- KEYBINDINGS
 config.keys = {
+  { key = 'n', mods = 'SHIFT|CTRL', action = "DisableDefaultAssignment" },
+  { key = 'p', mods = 'SHIFT|CTRL', action = "DisableDefaultAssignment" },
+  { key = 'h', mods = 'SHIFT|CTRL', action = "DisableDefaultAssignment" },
+  { key = 'j', mods = 'SHIFT|CTRL', action = "DisableDefaultAssignment" },
+  { key = 'k', mods = 'SHIFT|CTRL', action = "DisableDefaultAssignment" },
+  { key = 'l', mods = 'SHIFT|CTRL', action = "DisableDefaultAssignment" },
 }
 
 return config
